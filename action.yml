@@ -6,7 +6,9 @@ inputs:
   target-dir:
     description: Directory to deploy the minimized HTML file
     default: "."
-    required: true
+  file-name:
+    description: Name of the minimized HTML file
+    default: "index.html"
 
 runs:
   using: "composite"
@@ -27,7 +29,7 @@ runs:
     - name: Deploy minimized file
       run: |
         mkdir -p "${{ inputs.target-dir }}"
-        cp -uv ${{ github.action_path }}/index.min.html "${{ inputs.target-dir }}/index.html"
+        cp -uv ${{ github.action_path }}/index.min.html "${{ inputs.target-dir }}/${{ inputs.file-name }}"
       shell: bash
 
 branding:
