@@ -1,0 +1,35 @@
+name: check version and push tag
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Check version
+      id: version-check
+      run: |
+        chmod +x ./scripts/is-newer-version.bash
+        chmod +x ./scripts/get-version.bash
+        VERSION=$(./scripts/is-newer-version.bash)
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
+        if [ "$VERSION" != "0" ]; then
+          echo "New version detected: $VERSION"
+        else
+          echo "No new version to release"
+        fi
+
+    - name: Push tag
+      if: steps.version-check.outputs.version != '0'
+      uses: actions-ecosystem/action-push-tag@v1
+      with:
+        tag: "v${{ steps.version-check.outputs.version }}"

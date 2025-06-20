@@ -1,0 +1,24 @@
+name: release
+
+on: 
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    name: Export
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Create release
+      uses: ncipollo/release-action@v1
+      with:
+        token: ${{ secrets.TOKEN }}
+        generateReleaseNotes: true
+        tag: ${{ github.ref_name }}
+        artifacts: "index.html,index.min.html"
