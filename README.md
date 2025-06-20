@@ -24,7 +24,7 @@
 
 ```yaml
 - name: Deploy markdown.html
-  uses: PJ-568/MARKDOWN.HTML@v1.10.1
+  uses: PJ-568/MARKDOWN.HTML@v1
   with:
     target-dir: '.'
     file-name: 'index.html'
@@ -56,3 +56,7 @@
 |darkmode.js|[MIT license](//mit-license.org)|[Github](https://github.com/sandoche/Darkmode.js)|
 |MoOx/pjax|[MIT license](//mit-license.org)|[Github](https://github.com/MoOx/pjax)|
 |instant.page|[MIT license](//mit-license.org)|[Github](https://github.com/instantpage/instant.page)|
+
+## 星
+
+[![Stargazers over time](https://starchart.cc/PJ-568/MARKDOWN.HTML.svg?variant=adaptive)](https://starchart.cc/PJ-568/MARKDOWN.HTML)
