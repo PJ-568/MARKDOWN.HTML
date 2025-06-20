@@ -45,9 +45,11 @@ For a simpler way to contribute, please refer to the [Contribution Guide](CONTRI
 
 This project is licensed under the [CC BY-SA 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/) license. For full license information, please refer to the [`LICENSE`](LICENSE) file.
 
-### Additional Licenses
+### Credits
 
-|Name|License|Address|
+#### Projects
+
+|Name|License|URL|
 |:-:|:--|:--|
 |tabler-icons|[MIT License](//mit-license.org)|[https://github.com/tabler/tabler-icons](https://github.com/tabler/tabler-icons)|
 |markedjs/marked|[marked License](https://github.com/markedjs/marked/blob/master/LICENSE.md)|[Github](https://github.com/markedjs/marked)|
@@ -57,6 +59,14 @@ This project is licensed under the [CC BY-SA 4.0 International](https://creative
 |MoOx/pjax|[MIT license](//mit-license.org)|[Github](https://github.com/MoOx/pjax)|
 |instant.page|[MIT license](//mit-license.org)|[Github](https://github.com/instantpage/instant.page)|
 |Maple Mono|[OFL-1.1 license](https://openfontlicense.org/open-font-license-official-text/)|[Github](https://github.com/subframe7536/maple-font)|
+
+#### Services
+
+|Icon|Name|
+|:-:|:--|
+|None|[360 Frontend Static Resource Library](https://cdn.baomitu.com/)|
+|![ByteDance Static Resource CDN icon](https://cdn.bytedance.com/src/res/logo.svg)|[ByteDance Static Resource CDN](https://cdn.bytedance.com/)|
+|![Chinese Font Network Project](https://chinese-font.netlify.app/favicon.ico)|[Chinese Font Network Project](https://chinese-font.netlify.app)|
 
 ## Stargazers over time
 

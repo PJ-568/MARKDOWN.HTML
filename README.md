@@ -6,7 +6,7 @@
 
 ## 特性
 
-- **少依赖**：仅需一个 HTML 文件、少量 CDN 和服务器程序，即可完成 Markdown 网页渲染。
+- **依赖少**：仅需一个 HTML 文件、少量 CDN 和服务器程序，即可完成 Markdown 网页渲染。
 - **Markdown 支持**：将 Markdown 文件渲染为 HTML。
 - **Mermaid 支持**：将 Markdown 中的 Mermaid 语法渲染为图表。
 - **多语言支持**：支持多种语言间的机器互译。
@@ -45,7 +45,9 @@
 
 本项目遵循 [CC BY-SA 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/) 许可协议。如果想了解完整许可信息，请查阅 [`LICENSE`](LICENSE) 文件。
 
-### 附加许可证
+### 鸣谢
+
+#### 项目
 
 |名称|协议|地址|
 |:-:|:--|:--|
@@ -57,6 +59,14 @@
 |MoOx/pjax|[MIT license](//mit-license.org)|[Github](https://github.com/MoOx/pjax)|
 |instant.page|[MIT license](//mit-license.org)|[Github](https://github.com/instantpage/instant.page)|
 |Maple Mono|[OFL-1.1 license](https://openfontlicense.org/open-font-license-official-text/)|[Github](https://github.com/subframe7536/maple-font)|
+
+#### 服务
+
+|图标|名称|
+|:-:|:--|
+|无|[360 前端静态资源库](https://cdn.baomitu.com/)|
+|![字节跳动静态资源公共库图标](https://cdn.bytedance.com/src/res/logo.svg)|[字节跳动静态资源公共库](https://cdn.bytedance.com/)|
+|![中文网字计划](https://chinese-font.netlify.app/favicon.ico)|[中文网字计划](https://chinese-font.netlify.app)|
 
 ## 星
 
