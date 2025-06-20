@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.10.2" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.11.0" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -432,7 +432,6 @@
               } else {
                 linkHref = getPath() + linkHref;
               }
-              console.log(isRelativePath(linkHref), linkHref, pValue);
               linkHref = new URL(linkHref, 'http://example.com').pathname;
             }
             const newLink = `[${linkText}](${window.location.pathname}?p=${linkHref})`;
@@ -623,12 +622,23 @@
   <title>加载中</title>
   <style>
     /* 全局 */
-    * {
-      font-family: 'Exo', sans-serif;
+
+    :root,
+    html,
+    body,
+    button,
+    input,
+    select,
+    textarea,
+    code,
+    pre {
+      font-family: 'Sarasa Term SC Nerd', 'Maple Mono CN', Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', Arial, sans-serif;
       text-decoration: none;
     }
 
-    :root {
+    :root,
+    html,
+    body {
       background-color: #e6e6e6;
     }
 
@@ -929,6 +939,8 @@
       }
     }
   </style>
+  <link rel="stylesheet"
+    href="https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css" />
 </head>
 
 <body>
