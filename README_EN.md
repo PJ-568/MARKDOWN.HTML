@@ -56,6 +56,7 @@ This project is licensed under the [CC BY-SA 4.0 International](https://creative
 |darkmode.js|[MIT license](//mit-license.org)|[Github](https://github.com/sandoche/Darkmode.js)|
 |MoOx/pjax|[MIT license](//mit-license.org)|[Github](https://github.com/MoOx/pjax)|
 |instant.page|[MIT license](//mit-license.org)|[Github](https://github.com/instantpage/instant.page)|
+|Maple Mono|[OFL-1.1 license](https://openfontlicense.org/open-font-license-official-text/)|[Github](https://github.com/subframe7536/maple-font)|
 
 ## Stargazers over time
 
