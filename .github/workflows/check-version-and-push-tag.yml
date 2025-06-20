@@ -30,6 +30,9 @@ jobs:
 
     - name: Push tag
       if: steps.version-check.outputs.version != '0'
-      uses: actions-ecosystem/action-push-tag@v1
-      with:
-        tag: "v${{ steps.version-check.outputs.version }}"
+      run: |
+        tag="v${{ steps.version-check.outputs.version }}"
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git tag -a "${tag}" -m "Release ${tag}"
+        git push origin "${tag}"
