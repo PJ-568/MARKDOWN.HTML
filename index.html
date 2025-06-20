@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.10.1" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.10.2" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -16,7 +16,8 @@
   <script src="https://lib.baomitu.com/translate.js/3.7.2/translate.js" type="text/javascript"></script>
   <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/Darkmode.js/1.5.7/darkmode-js.min.js"
     type="text/javascript"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.5.0/mermaid.min.js" type="text/javascript"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/mermaid/8.14.0/mermaid.min.js"
+    type="text/javascript"></script>
   <script>
     // 使用 IIFE 包裹以避免全局变量污染
     (function () {
@@ -85,8 +86,13 @@
 
       // 文档解析功能相关
       var notExistIndexPage = null;  // 是否不存在索引页
+      var pValue = null;
       async function getPValue() {
-        return await decodeMDPath(window.location.href);
+        if (pValue) {
+          return pValue;
+        } else {
+          return await decodeMDPath(window.location.href);
+        }
       }
 
       // PJAX 相关
@@ -251,7 +257,9 @@
       }
 
       // 判断路径是否为相对路径
-      const isRelativePath = (path) => !path.startsWith('/');
+      function isRelativePath(path) {
+        return !path.match(/^\//);
+      }
 
       // 处理错误
       function updateContent(article, title = null, mdPath = null) {
@@ -346,6 +354,7 @@
           }
         }
         try {
+          pValue = mdPath ? mdPath : path;
           updateContent(await getMarkdown((mdPath ? mdPath : path), response))
           document.querySelector('html').classList.add('loaded');	//// 防止缓存的页面被自定义 PJAX 中覆写的处理响应的函数捕获
           waitForAnimationsEnd(document.querySelector('.markdown-body'), '.content, .old-content', ['Animation-slideInRight', 'Animation-slideInLeft']).then(async () => {
@@ -405,7 +414,32 @@
             throw new Error('请求失败：' + mdPath + '，' + response.headers.get('content-type') + '，' + response.status + '，' + response.statusText);
           }
         }
-        var content = marked.parse(await response.text());
+        var markdown_content = await response.text();
+        // 如果 markdown_content 中发现 `[任意标题](路径文件名.md)` 
+        /* 
+          如果 href 是相对路径，则在其前加上当前读取的文档的绝对路径；
+          如果不存在当前读取的文档（默认读取的 index.md 或 README.md），
+          则在其前加上 markdown.html 的绝对路径。
+          */
+        const links = markdown_content.match(/\[.*\]\(.*\.md\)/g);
+        if (links) {
+          links.forEach(link => {
+            const linkText = link.match(/\[.*\]/)[0].slice(1, -1);
+            var linkHref = link.match(/\(.*\)/)[0].slice(1, -1);
+            if (isRelativePath(linkHref)) {
+              if (pValue) {
+                linkHref = getDirectory(mdPath) + linkHref;
+              } else {
+                linkHref = getPath() + linkHref;
+              }
+              console.log(isRelativePath(linkHref), linkHref, pValue);
+              linkHref = new URL(linkHref, 'http://example.com').pathname;
+            }
+            const newLink = `[${linkText}](${window.location.pathname}?p=${linkHref})`;
+            markdown_content = markdown_content.replace(link, newLink);
+          });
+        }
+        var content = marked.parse(markdown_content);
         if (content === '') {
           content = '<i>空文件</i>';
         }
@@ -416,27 +450,6 @@
         const outline = generateOutline(doc);
         doc.querySelector('.outline').innerHTML += outline;
 
-        const links = doc.querySelectorAll('a[href$=".md"]');
-        const pValue = await getPValue()
-        links.forEach(link => {
-          var href = link.getAttribute('href');
-          /* 
-            如果 href 是相对路径，则在其前加上当前读取的文档的绝对路径；
-            如果不存在当前读取的文档（默认读取的 index.md 或 README.md），
-            则在其前加上 markdown.html 的绝对路径。
-           */
-          if (isRelativePath(href)) {
-            if (pValue) {
-              href = getDirectory(mdPath) + href;
-            } else {
-              href = getPath() + href;
-            }
-            const absoluteHref = new URL(href, 'http://example.com').pathname;
-            link.setAttribute('href', `${window.location.pathname}?p=${absoluteHref}`);
-          } else if (href.startsWith('/')) {
-            link.setAttribute('href', `${window.location.pathname}?p=${href}`);
-          }
-        });
         return doc.body.innerHTML;
       };
 
