@@ -64,7 +64,6 @@ jobs:
       if: steps.version-check.outputs.version != '0'
       uses: ncipollo/release-action@v1
       with:
-        token: ${{ secrets.TOKEN }}
         generateReleaseNotes: true
         tag: "v${{ steps.version-check.outputs.version }}"
         artifacts: "index.html,index.min.html"
