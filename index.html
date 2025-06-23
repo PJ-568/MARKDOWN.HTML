@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.13.1" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.14.0" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -601,15 +601,15 @@
             return;
           }
         }
-        if (event.target.closest('.back-btn')) {
+        if (event.target.closest('nav .back-btn')) {
           window.history.back();
-        } else if (event.target.closest('.refresh-btn')) {
+        } else if (event.target.closest('nav .refresh-btn')) {
           window.location.reload();
-        } else if (event.target.closest('.dark-btn')) {
+        } else if (event.target.closest('nav .dark-btn')) {
           darkmode.toggle();
-        } else if (event.target.closest('.translate-switch')) {
+        } else if (event.target.closest('nav .translate-switch')) {
           translate.changeLanguage(translate.language.getLocal());
-        } else if (event.target.closest('a[href^="#"]')) {
+        } else if (event.target.closest('.content a[href^="#"]')) {
           // 目录平滑移动
           const href = event.target.getAttribute('href');
           if (href !== '#') {
@@ -622,6 +622,13 @@
             } else {
               console.error(`ID 为 ${targetId} 的元素不存在。`);
             }
+          }
+        } else if (event.target.closest('.content a:not([href$=".md"])')) {
+          const link = event.target.closest('a');
+          if (link && link.href) {
+            window.open(link.href, '_blank');
+            event.preventDefault();
+            return;
           }
         }
       });
