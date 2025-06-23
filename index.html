@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.12.0" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.13.0" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -23,16 +23,39 @@
   <script>
     // 使用 IIFE 包裹以避免全局变量污染
     (function () {
-      const about = `
+      function getVersion() {
+        const markdownElement = document.querySelector('markdown-html');
+        if (markdownElement) {
+          const version = markdownElement.getAttribute('version');
+          return version;
+        } else {
+          return '未知';
+        }
+      }
+
+      function getAbout() {
+        return `
 # 关于
 
 ## MARKDOWN.HTML
 
+版本：${getVersion()}
+
 旨在提供低依赖、一键部署的 Markdown 网页渲染方案。
+
+### 特性
+
+- **依赖少**：仅需一个 HTML 文件、少量 CDN 和服务器程序，即可完成 Markdown 网页渲染。
+- **Markdown 支持**：将 Markdown 文件渲染为 HTML。
+- **Mermaid 支持**：将 Markdown 中的 Mermaid 语法渲染为图表。
+- **多语言支持**：支持多种语言间的机器互译。
+- **深色模式**：支持浅色、深色、跟随系统。
+- **Pjax 支持**：支持无刷新页面跳转。
 
 详情请访问 [GitHub](https://github.com/PJ-568/MARKDOWN.HTML) 或 [Gitee](https://gitee.com/PJ-568/MARKDOWN.HTML) 仓库。
 
 `;
+      }
 
       // 加载动画相关
       var loadingState = {
@@ -333,6 +356,7 @@
         } else if (mdPath.endsWith('about.md')) {
           // 特殊处理 about.md
           response = await fetch(mdPath);
+          const about = getAbout();
           if (response.ok && response.headers.get('content-type').startsWith('text/markdown')) {
             var r_text = await response.text();
             const content = about + await r_text.replace(/^# .*/m, '');
