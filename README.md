@@ -52,15 +52,15 @@
 
 |名称|协议|地址|
 |:-:|:--|:--|
-|tabler-icons|[MIT License](//mit-license.org)|[https://github.com/tabler/tabler-icons](https://github.com/tabler/tabler-icons)|
-|highlightjs/highlight.js|[BSD-3-Clause license](https://github.com/highlightjs/highlight.js/raw/refs/heads/main/LICENSE)|[Github](https://github.com/highlightjs/highlight.js)|
-|markedjs/marked|[marked License](https://github.com/markedjs/marked/blob/master/LICENSE.md)|[Github](https://github.com/markedjs/marked)|
-|mermaidjs/mermaid|[MIT License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)|[Github](https://github.com/mermaid-js/mermaid)|
-|translate.js|[Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)|[Github](https://github.com/xnx3/translate)、[Gitee](https://gitee.com/mail_osc/translate)|
-|darkmode.js|[MIT license](//mit-license.org)|[Github](https://github.com/sandoche/Darkmode.js)|
+|tabler-icons|[MIT License](//mit-license.org)|[Github](https://github.com/tabler/tabler-icons)、[Website](https://tabler.io/icons)|
+|highlightjs/highlight.js|[BSD-3-Clause license](https://github.com/highlightjs/highlight.js/raw/refs/heads/main/LICENSE)|[Github](https://github.com/highlightjs/highlight.js)、[Website](https://highlightjs.org)|
+|markedjs/marked|[marked License](https://github.com/markedjs/marked/blob/master/LICENSE.md)|[Github](https://github.com/markedjs/marked)、[Website](https://marked.js.org)|
+|mermaidjs/mermaid|[MIT License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)|[Github](https://github.com/mermaid-js/mermaid)、[Website](https://mermaid.js.org)|
+|translate.js|[Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)|[Github](https://github.com/xnx3/translate)、[Gitee](https://gitee.com/mail_osc/translate)、[Website](https://translate.zvo.cn)|
+|darkmode.js|[MIT license](//mit-license.org)|[Github](https://github.com/sandoche/Darkmode.js)、[Website](https://darkmodejs.learn.uno)|
 |MoOx/pjax|[MIT license](//mit-license.org)|[Github](https://github.com/MoOx/pjax)|
-|instant.page|[MIT license](//mit-license.org)|[Github](https://github.com/instantpage/instant.page)|
-|Maple Mono|[OFL-1.1 license](https://openfontlicense.org/open-font-license-official-text/)|[Github](https://github.com/subframe7536/maple-font)|
+|instant.page|[MIT license](//mit-license.org)|[Github](https://github.com/instantpage/instant.page)、[Website](https://instant.page)|
+|Maple Mono|[OFL-1.1 license](https://openfontlicense.org/open-font-license-official-text/)|[Github](https://github.com/subframe7536/maple-font)、[Website](https://font.subf.dev)|
 
 #### 服务
 
