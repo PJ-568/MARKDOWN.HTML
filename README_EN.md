@@ -7,6 +7,7 @@ This project aims to provide a low-dependency, simple deployment solution for re
 ## Features
 
 - **Low dependencies**: Only an HTML file, a small number of CDNs, and server programs are required to complete Markdown pages rendering.
+- **Syntax highlighting support**: Renders code blocks in Markdown.
 - **Markdown support**: Renders Markdown files into HTML.
 - **Mermaid support**: Renders Mermaid syntax in Markdown into diagrams.
 - **Multilingual support**: Supports machine translation between multiple languages.
@@ -52,6 +53,7 @@ This project is licensed under the [CC BY-SA 4.0 International](https://creative
 |Name|License|URL|
 |:-:|:--|:--|
 |tabler-icons|[MIT License](//mit-license.org)|[https://github.com/tabler/tabler-icons](https://github.com/tabler/tabler-icons)|
+|highlightjs/highlight.js|[BSD-3-Clause license](https://github.com/highlightjs/highlight.js/raw/refs/heads/main/LICENSE)|[Github](https://github.com/highlightjs/highlight.js)|
 |markedjs/marked|[marked License](https://github.com/markedjs/marked/blob/master/LICENSE.md)|[Github](https://github.com/markedjs/marked)|
 |mermaidjs/mermaid|[MIT License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)|[Github](https://github.com/mermaid-js/mermaid)|
 |translate.js|[Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)|[Github](https://github.com/xnx3/translate)、[Gitee](https://gitee.com/mail_osc/translate)|

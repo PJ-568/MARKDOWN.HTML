@@ -7,6 +7,7 @@
 ## 特性
 
 - **依赖少**：仅需一个 HTML 文件、少量 CDN 和服务器程序，即可完成 Markdown 网页渲染。
+- **代码高亮支持**：渲染 Markdown 中的代码块。
 - **Markdown 支持**：将 Markdown 文件渲染为 HTML。
 - **Mermaid 支持**：将 Markdown 中的 Mermaid 语法渲染为图表。
 - **多语言支持**：支持多种语言间的机器互译。
@@ -52,6 +53,7 @@
 |名称|协议|地址|
 |:-:|:--|:--|
 |tabler-icons|[MIT License](//mit-license.org)|[https://github.com/tabler/tabler-icons](https://github.com/tabler/tabler-icons)|
+|highlightjs/highlight.js|[BSD-3-Clause license](https://github.com/highlightjs/highlight.js/raw/refs/heads/main/LICENSE)|[Github](https://github.com/highlightjs/highlight.js)|
 |markedjs/marked|[marked License](https://github.com/markedjs/marked/blob/master/LICENSE.md)|[Github](https://github.com/markedjs/marked)|
 |mermaidjs/mermaid|[MIT License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)|[Github](https://github.com/mermaid-js/mermaid)|
 |translate.js|[Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)|[Github](https://github.com/xnx3/translate)、[Gitee](https://gitee.com/mail_osc/translate)|
