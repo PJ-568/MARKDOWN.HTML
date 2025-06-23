@@ -33,12 +33,14 @@ jobs:
 
     - name: Push tag
       if: steps.version-check.outputs.version != '0'
+      id: push-tag
       run: |
         tag="v${{ steps.version-check.outputs.version }}"
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
         git tag -a "${tag}" -m "Release ${tag}"
         git push origin "${tag}"
+        echo "tag_name=${tag}" >> $GITHUB_OUTPUT
 
     - name: Checkout
       if: steps.version-check.outputs.version != '0'
@@ -56,7 +58,7 @@ jobs:
 
     - name: Generate minimized HTML
       if: steps.version-check.outputs.version != '0'
-      run: cargo run --release -- ${{ github.action_path }}/index.html ${{ github.action_path }}/index.min.html
+      run: cargo run --release -- index.html index.min.html
       shell: bash
       working-directory: ${{ github.action_path }}
 
@@ -64,8 +66,8 @@ jobs:
       if: steps.version-check.outputs.version != '0'
       run: |
         mkdir -p ../release
-        cp -v ${{ github.action_path }}/index.html ../release/
-        cp -v ${{ github.action_path }}/index.min.html ./release/
+        cp -v index.html ../release/
+        cp -v index.min.html ../release/
       shell: bash
       working-directory: ${{ github.action_path }}
 
@@ -75,4 +77,12 @@ jobs:
       with:
         generateReleaseNotes: true
         tag: "v${{ steps.version-check.outputs.version }}"
-        artifacts: "${{ github.action_path }}/index.html,${{ github.action_path }}/index.min.html"
+        artifacts: "../release/index.html,../release/index.min.html"
+
+    - name: Delete tag on failure
+      if: failure() && steps.push-tag.outputs.tag_name != ''
+      run: |
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git push --delete origin "${{ steps.push-tag.outputs.tag_name }}"
+        git tag -d "${{ steps.push-tag.outputs.tag_name }}"
