@@ -60,10 +60,19 @@ jobs:
       shell: bash
       working-directory: ${{ github.action_path }}
 
+    - name: Copy files
+      if: steps.version-check.outputs.version != '0'
+      run: |
+        mkdir -p ../release
+        cp -v ${{ github.action_path }}/index.html ../release/
+        cp -v ${{ github.action_path }}/index.min.html ./release/
+      shell: bash
+      working-directory: ${{ github.action_path }}
+
     - name: Create release
       if: steps.version-check.outputs.version != '0'
       uses: ncipollo/release-action@v1
       with:
         generateReleaseNotes: true
         tag: "v${{ steps.version-check.outputs.version }}"
-        artifacts: "index.html,index.min.html"
+        artifacts: "${{ github.action_path }}/index.html,${{ github.action_path }}/index.min.html"
