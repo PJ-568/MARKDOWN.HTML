@@ -33,7 +33,7 @@ This project aims to provide a low-dependency, simple deployment solution for re
 
 ## Additional Notes
 
-`The open-source projects used in this project allow modifications, but please retain the original author information. If removal is necessary, please contact the author to avoid losing technical support.` For more details, refer to the license.
+`The open-source projects used in this project allow modifications, but please retain the original author information. If removal is necessary, please contact the author to avoid losing technical support.` For more details, refer to the [license](#license).
 
 ## Code or Content Contributions
 
