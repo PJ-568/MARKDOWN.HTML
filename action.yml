@@ -9,28 +9,46 @@ inputs:
   file-name:
     description: Name of the minimized HTML file
     default: "index.html"
+  use-minified:
+    description: Whether to use minified HTML file
+    default: "true"
+  use-all-in-one:
+    description: Whether to use all-in-one HTML file
+    default: "false"
 
 runs:
   using: "composite"
   steps:
     - name: Setup Rust
       uses: MatteoH2O1999/setup-rust@v1
+      if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
 
     - name: Build project
-      run: cargo build --release
+      if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
+      run: cargo install && cargo build --release
       shell: bash
       working-directory: ${{ github.action_path }}
 
     - name: Generate minimized HTML
-      run: cargo run --release -- ${{ github.action_path }}/index.html ${{ github.action_path }}/index.min.html
+      if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
+      run: cargo run --release -- index.html
       shell: bash
       working-directory: ${{ github.action_path }}
 
-    - name: Deploy minimized file
+    - name: Deploy file
       run: |
         mkdir -p "${{ inputs.target-dir }}"
-        cp -uv ${{ github.action_path }}/index.min.html "${{ inputs.target-dir }}/${{ inputs.file-name }}"
+        USE_MINIFIED=""
+        USE_ALL_IN_ONE=""
+        if [ "${{ inputs.use-minified }}" = "true" ]; then
+          USE_MINIFIED=".min"
+        fi
+        if [ "${{ inputs.use-all-in-one }}" = "true" ]; then
+          USE_ALL_IN_ONE=".allinone"
+        fi
+        cp -uv index${USE_ALL_IN_ONE}${USE_MINIFIED}.html "${{ inputs.target-dir }}/${{ inputs.file-name }}"
       shell: bash
+      working-directory: ${{ github.action_path }}
 
 branding:
   icon: 'book-open'

@@ -6,7 +6,7 @@
 
 ## 特性
 
-- **依赖少**：仅需一个 HTML 文件、少量 CDN 和服务器程序，即可完成 Markdown 网页渲染。
+- **依赖少**：仅需一个 HTML 文件，即可完成 Markdown 网页渲染。
 - **代码高亮支持**：渲染 Markdown 中的代码块。
 - **Markdown 支持**：将 Markdown 文件渲染为 HTML。
 - **Mermaid 支持**：将 Markdown 中的 Mermaid 语法渲染为图表。
@@ -16,12 +16,21 @@
 
 ## 使用方法
 
+| 文件名 | 说明 |
+| :----- | :--- |
+| index.html | 默认 HTML 入口文件，使用 CDN 引入依赖。 |
+| index.min.html | 压缩后的 HTML 入口文件，使用 CDN 引入依赖。 |
+| index.allinone.html | 全合一 HTML 入口文件，默认包含所有可被脚本下载的依赖。 |
+| index.allinone.min.html | 压缩后的全合一 HTML 入口文件，默认包含所有可被脚本下载的依赖。 |
+
 ### 手动部署
 
-1. 下载并重命名本仓库的 `index.html` 文件到你的网站根目录或任何其他目录中；
-2. 当下载并重命名后的 `index.html` 被访问时，将自动渲染同目录下的 `index.md`，如果 `index.md` 不存在，则渲染 `README.md`。
+1. 在[发行页面](https://github.com/PJ-568/MARKDOWN.HTML/releases)下载并重命名您需要的 HTML 文件到你的网站根目录或任何其他目录中；
+2. 当下载并重命名后的 HTML 被访问时，将自动渲染同目录下的 `index.md`，如果 `index.md` 不存在，则渲染 `README.md`。
 
 ### Github Actions
+
+编译并把 HTML 放入指定目录。使用时须将 `<version>` 替换为版本号。
 
 ```yaml
 - name: Deploy markdown.html
@@ -29,6 +38,8 @@
   with:
     target-dir: '.'
     file-name: 'index.html'
+    use-minified: 'true'
+    use-all-in-one: 'false'
 ```
 
 ## 其他说明

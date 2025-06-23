@@ -21,7 +21,7 @@
 
 1. Fork 源码，下载到本地并运行项目；
 2. 添加或修改代码；
-3. 运行 `cargo run --release -- index.html index.min.html` 命令以生成压缩的最小文件；
+3. 配置 rust 环境并运行 `cargo run --release -- index.html` 命令以生成压缩的最小文件和全合一文件；
 4. 对相关改动进行全面的自我测试；
 5. 确认无误后提交修改到 Github；
 6. 提交 Pull Request。

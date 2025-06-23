@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.14.5" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.15.0" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -45,7 +45,7 @@
 
 ### 特性
 
-- **依赖少**：仅需一个 HTML 文件、少量 CDN 和服务器程序，即可完成 Markdown 网页渲染。
+- **依赖少**：仅需一个 HTML 文件，即可完成 Markdown 网页渲染。
 - **Markdown 支持**：将 Markdown 文件渲染为 HTML。
 - **Mermaid 支持**：将 Markdown 中的 Mermaid 语法渲染为图表。
 - **多语言支持**：支持多种语言间的机器互译。
@@ -592,14 +592,13 @@
           if (url) {
             window.open(url, '_blank');
             event.preventDefault();
-            return;
           } else {
             const newWindow = window.open('', '_blank');
             newWindow.document.write(imgOrSvg.outerHTML);
             newWindow.document.close();
             event.preventDefault();
-            return;
           }
+          return;
         }
         if (event.target.closest('nav .back-btn')) {
           window.history.back();
