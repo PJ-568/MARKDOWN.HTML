@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   release:
@@ -81,8 +81,8 @@ jobs:
         tag: "v${{ steps.version-check.outputs.version }}"
         artifacts: "../release/index.html,../release/index.min.html,../release/index.allinone.html,../release/index.allinone.min.html"
 
-    - name: Delete tag on failure
-      if: failure() && steps.push-tag.outputs.tag_name != ''
+    - name: Delete tag
+      if: (cancelled() || failure()) && steps.push-tag.outputs.tag_name != ''
       run: |
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
