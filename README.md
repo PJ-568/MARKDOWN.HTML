@@ -25,7 +25,7 @@
 
 ```yaml
 - name: Deploy markdown.html
-  uses: PJ-568/MARKDOWN.HTML@v1
+  uses: PJ-568/MARKDOWN.HTML@v<version>
   with:
     target-dir: '.'
     file-name: 'index.html'
