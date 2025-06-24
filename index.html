@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.15.1" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.15.2" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -460,7 +460,7 @@
               }
               linkHref = new URL(linkHref, 'http://example.com').pathname;
             }
-            const newLink = `[${linkText}](${window.location.pathname}?p=${linkHref})`;
+            const newLink = `[${linkText}](?p=${linkHref})`;  // 链接格式与 window.location.search 一致
             markdown_content = markdown_content.replace(link, newLink);
           });
         }
@@ -600,29 +600,30 @@
           }
           return;
         }
-        if (event.target.closest('nav .back-btn')) {
+        if (event.target.closest('.back-btn')) {
           window.history.back();
-        } else if (event.target.closest('nav .refresh-btn')) {
+        } else if (event.target.closest('.refresh-btn')) {
           window.location.reload();
-        } else if (event.target.closest('nav .dark-btn')) {
+        } else if (event.target.closest('.dark-btn')) {
           darkmode.toggle();
-        } else if (event.target.closest('nav .translate-switch')) {
+        } else if (event.target.closest('.translate-switch')) {
           translate.changeLanguage(translate.language.getLocal());
-        } else if (event.target.closest('.content a[href^="#"]')) {
-          // 目录平滑移动
-          const href = event.target.getAttribute('href');
-          if (href !== '#') {
-            event.preventDefault();
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-              targetElement.scrollIntoView({
-                behavior: 'smooth'
-              });
-            } else {
-              console.error(`ID 为 ${targetId} 的元素不存在。`);
-            }
-          }
-        } else if (event.target.closest('.content a:not([href$=".md"])')) {
+        // 跳转。禁用原因是有些带有特殊字符的链接会出错或无法跳转
+        // } else if (event.target.closest('.content a[href^="#"]')) {
+        //   // 目录平滑移动
+        //   const href = event.target.getAttribute('href');
+        //   if (href !== '#') {
+        //     event.preventDefault();
+        //     const targetElement = document.querySelector(href);
+        //     if (targetElement) {
+        //       targetElement.scrollIntoView({
+        //         behavior: 'smooth'
+        //       });
+        //     } else {
+        //       console.error(`ID 为 ${targetId} 的元素不存在。`);
+        //     }
+        //   }
+        } else if (event.target.closest('.content a:not([href^="?"]):not([href^="#"]):not([href^="javascript:"])')) {
           const link = event.target.closest('a');
           if (link && link.href) {
             window.open(link.href, '_blank');
