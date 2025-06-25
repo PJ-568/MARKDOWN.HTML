@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.17.1" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.17.2" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -350,7 +350,6 @@
       // 处理错误
       function handleError(mdPath, errorMessage) {
         updateContent(`<h1>加载失败</h1><p>加载文档<code>${mdPath}</code>时出错：<code>${errorMessage}</code>。您可以尝试<a class="refresh-btn" href="">重新加载</a>或<a class="back-btn">返回</a>。</p>`, '加载失败');
-        customPushState(window.location.origin + window.location.pathname + '?p=error.md');
         waitForAnimationsEnd(document.querySelector('.markdown-body'), '.content, .old-content', ['Animation-slideInRight', 'Animation-slideInLeft']).then(() => {
           customPushState(window.location.origin + window.location.pathname + (mdPath ? ('?p=' + mdPath) : ''));
         });
@@ -470,54 +469,47 @@
           }
         }
         var markdown_content = await response.text();
-        // 如果 markdown_content 中发现 `[任意标题](路径文件名.md)` 
-        /* 
-          如果 href 是相对路径，则在其前加上当前读取的文档的绝对路径；
-          如果不存在当前读取的文档（默认读取的 index.md 或 README.md），
-          则在其前加上 markdown.html 的绝对路径。
-          */
-        const links = markdown_content.match(/\[.*\]\(.*\.md\)/g);
-        if (links) {
-          links.forEach(link => {
-            const linkText = link.match(/\[.*\]/)[0].slice(1, -1);
-            var linkHref = link.match(/\(.*\)/)[0].slice(1, -1);
-            if (isExternalLink(linkHref)) {
-              ;
-            } else if (isRelativePath(linkHref)) {
-              if (pValue) {
-                linkHref = getDirectory(mdPath) + linkHref;
-              } else {
-                linkHref = getPath() + linkHref;
-              }
-              linkHref = new URL(linkHref, 'http://example.com').pathname;
-            }
-            const newLink = `[${linkText}](?p=${linkHref})`;  // 链接格式与 window.location.search 一致
-            markdown_content = markdown_content.replace(link, newLink);
-          });
-        }
-        const images = markdown_content.match(/!\[.*\]\(.*\)/g);
-        if (images) {
-          images.forEach(image => {
-            const imageText = image.match(/\[.*\]/)[0].slice(1, -1);
-            var imageHref = image.match(/\(.*\)/)[0].slice(1, -1);
-            if (isExternalLink(imageHref)) {
-              ;
-            } else if (isRelativePath(imageHref)) {
-              if (pValue) {
-                imageHref = getDirectory(mdPath) + imageHref;
-              } else {
-                imageHref = getPath() + imageHref;
-              }
-              imageHref = new URL(imageHref, 'http://example.com').pathname;
-            }
-            const newImage = `![${imageText}](${imageHref})`;
-            markdown_content = markdown_content.replace(image, newImage);
-          });
-        }
         var content = marked.parse(markdown_content);
+        // 因为是在本页面渲染一个其它页面的文档：
+        // - 从 content 中获取所有 href 以 .md 结尾的 a 标签；
+        // - 遍历这些 a 标签，如果 href 不是外链，则判断 href 是否为相对路径……最后转换为 ?p=<到该文件的绝对路径>
+        // - 从 content 中获取所有 img 标签；
+        // - 遍历这些 img 标签，如果 src 不是外链，则判断 src 是否为相对路径……最后转换为 <到该文件的绝对路径>
+
+        const linkParser = new DOMParser();
+        const linkDoc = linkParser.parseFromString(`<div>${content}</div>`, 'text/html');
+
+        // 处理所有以 .md 结尾的链接
+        const mdLinks = linkDoc.querySelectorAll('a[href$=".md"]');
+        mdLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (!isExternalLink(href) && isRelativePath(href)) {
+            var absolutePath = pValue ? getDirectory(mdPath) + href : getPath() + href;
+            absolutePath = new URL(absolutePath, 'http://example.com').pathname;
+            link.setAttribute('href', `?p=${absolutePath}`);
+          }
+        });
+
+        // 处理所有图片
+        const images = linkDoc.querySelectorAll('img');
+        images.forEach(img => {
+          const src = img.getAttribute('src');
+          if (src && !isExternalLink(src) && isRelativePath(src)) {
+            var absolutePath = pValue ? getDirectory(mdPath) + src : getPath() + src;
+            absolutePath = new URL(absolutePath, 'http://example.com').pathname;
+            img.setAttribute('src', absolutePath);
+          }
+        });
+
+        // 更新处理后的 markdown 内容
+        content = linkDoc.body.innerHTML.replace(/^<div>|<\/div>$/g, '');
+
+        // 空文件
         if (content === '') {
           content = '<i>空文件</i>';
         }
+
+        // 添加目录
         content = `<details class="outline"><summary>${decodeURIComponent(mdPath)}</summary></details><hr>${content}`;
         const parser = new DOMParser();
         const doc = parser.parseFromString(content, 'text/html');
@@ -658,21 +650,22 @@
           darkmode.toggle();
         } else if (event.target.closest('.translate-switch')) {
           translate.changeLanguage(translate.language.getLocal());
-        // 跳转。禁用原因是有些带有特殊字符的链接会出错或无法跳转
-        // } else if (event.target.closest('.content a[href^="#"]')) {
-        //   // 目录平滑移动
-        //   const href = event.target.getAttribute('href');
-        //   if (href !== '#') {
-        //     event.preventDefault();
-        //     const targetElement = document.querySelector(href);
-        //     if (targetElement) {
-        //       targetElement.scrollIntoView({
-        //         behavior: 'smooth'
-        //       });
-        //     } else {
-        //       console.error(`ID 为 ${targetId} 的元素不存在。`);
-        //     }
-        //   }
+          /*  跳转。禁用原因是有些带有特殊字符的链接会出错或无法跳转
+        } else if (event.target.closest('.content a[href^="#"]')) {
+          // 目录平滑移动
+          const href = event.target.getAttribute('href');
+          if (href !== '#') {
+            event.preventDefault();
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth'
+              });
+            } else {
+              console.error(`ID 为 ${targetId} 的元素不存在。`);
+            }
+          }
+           */
         } else if (event.target.closest('.content a[href]:not([href=""])')) {
           const href = event.target.getAttribute('href');
           if (isExternalLink(href)) {
