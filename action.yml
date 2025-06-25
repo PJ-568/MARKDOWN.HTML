@@ -20,19 +20,6 @@ runs:
   using: "composite"
   steps:
 
-    - name: Get version
-      id: version-get
-      run: |
-        chmod +x ./scripts/get-version.bash
-        VERSION=$(./scripts/get-version.bash)
-        echo "version=${VERSION}" >> $GITHUB_OUTPUT
-        if [ "$VERSION" != "0" ]; then
-          echo "Version detected: $VERSION"
-        else
-          echo "No version detacted"
-        fi
-      shell: bash
-
     - name: Generate file name
       run: |
         USE_ALL_IN_ONE=""
@@ -50,7 +37,7 @@ runs:
       uses: robinraju/release-downloader@v1
       with:
         repository: 'PJ-568/MAKRDOWN.HTML'
-        tag: ${{ steps.version-get.outputs.version }}
+        latest: true
         fileName: ${{ steps.file-name.outputs.file_name }}
         tarBall: false
         zipBall: false

@@ -7,7 +7,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ## 仓库目录 | Repository Directory
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
 ## 文件路径 | File Path
-FILE_PATH="$REPO_DIR/index.html"
+if [ -n "$1" ]; then
+  FILE_PATH="$1"
+else
+  FILE_PATH="$REPO_DIR/index.html"
+fi
 ## 当前语言 | Current Language
 CURRENT_LANG=0 ### 0: en-US, 1: zh-Hans-CN
 
