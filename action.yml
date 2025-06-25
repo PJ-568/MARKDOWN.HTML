@@ -21,6 +21,7 @@ runs:
   steps:
 
     - name: Generate file name
+      id: gen-file-name
       run: |
         USE_ALL_IN_ONE=""
         USE_MINIFIED=""
@@ -31,6 +32,7 @@ runs:
           USE_MINIFIED=".min"
         fi
         echo "file_name=index${USE_ALL_IN_ONE}${USE_MINIFIED}.html" >> $GITHUB_OUTPUT
+        echo "index${USE_ALL_IN_ONE}${USE_MINIFIED}.html"
       shell: bash
 
     - name: Deploy pre-generated markdown.html file
@@ -38,14 +40,14 @@ runs:
       with:
         repository: 'PJ-568/MARKDOWN.HTML'
         latest: true
-        fileName: ${{ steps.file-name.outputs.file_name }}
+        fileName: ${{ steps.gen-file-name.outputs.file_name }}
         tarBall: false
         zipBall: false
         out-file-path: ${{ inputs.target-dir }}
 
     - name: Rename file
       run: |
-        mv $GITHUB_WORKSPACE/${{ steps.file-name.outputs.file_name }} $GITHUB_WORKSPACE/${{ inputs.file-name }}
+        mv -v $GITHUB_WORKSPACE/${{ steps.gen-file-name.outputs.file_name }} $GITHUB_WORKSPACE/${{ inputs.file-name }}
       shell: bash
 
 branding:
