@@ -56,6 +56,11 @@ runs:
         zipBall: false
         out-file-path: ${{ inputs.target-dir }}
 
+    - name: Rename file
+      run: |
+        mv $GITHUB_WORKSPACE/${{ steps.file-name.outputs.file_name }} $GITHUB_WORKSPACE/${{ inputs.file-name }}
+      shell: bash
+
 branding:
   icon: 'book-open'
   color: 'green'
