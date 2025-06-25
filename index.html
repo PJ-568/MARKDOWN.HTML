@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.16.0" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.17.0" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -283,9 +283,36 @@
         return mdPath;
       }
 
+      // 判断链接是否为外链
+      function isExternalLink(url) {
+        if (!url || typeof url !== 'string') return false;
+
+        //// 排除特殊协议
+        const excludedProtocols = ['#', 'javascript:', 'mailto:', 'tel:', 'data:'];
+        if (excludedProtocols.some(proto => url.startsWith(proto))) {
+          return false;
+        }
+
+        try {
+          const currentUrl = new URL(window.location.href);
+          const targetUrl = new URL(url, currentUrl.origin);
+
+          //// 排除非 HTTP(S) 协议
+          if (!['http:', 'https:'].includes(targetUrl.protocol)) return false;
+
+          //// 域名统一转小写比较
+          const currentHost = currentUrl.hostname.toLowerCase();
+          const targetHost = targetUrl.hostname.toLowerCase();
+
+          return currentHost !== targetHost;
+        } catch (e) {
+          return false;
+        }
+      }
+
       // 判断路径是否为相对路径
       function isRelativePath(path) {
-        return !path.match(/^\//);
+        return !path.match(/^\//); //// 不以 / 开头
       }
 
       // 处理错误
@@ -454,7 +481,9 @@
           links.forEach(link => {
             const linkText = link.match(/\[.*\]/)[0].slice(1, -1);
             var linkHref = link.match(/\(.*\)/)[0].slice(1, -1);
-            if (isRelativePath(linkHref)) {
+            if (isExternalLink(linkHref)) {
+              ;
+            } else if (isRelativePath(linkHref)) {
               if (pValue) {
                 linkHref = getDirectory(mdPath) + linkHref;
               } else {
@@ -464,6 +493,25 @@
             }
             const newLink = `[${linkText}](?p=${linkHref})`;  // 链接格式与 window.location.search 一致
             markdown_content = markdown_content.replace(link, newLink);
+          });
+        }
+        const images = markdown_content.match(/!\[.*\]\(.*\)/g);
+        if (images) {
+          images.forEach(image => {
+            const imageText = image.match(/\[.*\]/)[0].slice(1, -1);
+            var imageHref = image.match(/\(.*\)/)[0].slice(1, -1);
+            if (isExternalLink(imageHref)) {
+              ;
+            } else if (isRelativePath(imageHref)) {
+              if (pValue) {
+                imageHref = getDirectory(mdPath) + imageHref;
+              } else {
+                imageHref = getPath() + imageHref;
+              }
+              imageHref = new URL(imageHref, 'http://example.com').pathname;
+            }
+            const newImage = `![${imageText}](${imageHref})`;
+            markdown_content = markdown_content.replace(image, newImage);
           });
         }
         var content = marked.parse(markdown_content);
@@ -625,12 +673,11 @@
         //       console.error(`ID 为 ${targetId} 的元素不存在。`);
         //     }
         //   }
-        } else if (event.target.closest('.content a:not([href^="?"]):not([href^="#"]):not([href^="javascript:"])')) {
-          const link = event.target.closest('a');
-          if (link && link.href) {
-            window.open(link.href, '_blank');
+        } else if (event.target.closest('.content a[href]:not([href=""])')) {
+          const href = event.target.getAttribute('href');
+          if (isExternalLink(href)) {
+            window.open(href, '_blank');
             event.preventDefault();
-            return;
           }
         }
       });
