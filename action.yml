@@ -22,11 +22,14 @@ runs:
     - name: Setup Rust
       uses: MatteoH2O1999/setup-rust@v1
       if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
+      working-directory: ${{ github.action_path }}
 
     - name: Cache Rust dependencies
       if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
       uses: Swatinem/rust-cache@v2
+      working-directory: 
       with:
+        workspaces: "${{ github.action_path }} -> target"
         cache-on-failure: "true"
 
     - name: Build project
