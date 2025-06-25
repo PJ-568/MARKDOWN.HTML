@@ -36,7 +36,7 @@ runs:
     - name: Deploy pre-generated markdown.html file
       uses: robinraju/release-downloader@v1
       with:
-        repository: 'PJ-568/MAKRDOWN.HTML'
+        repository: 'PJ-568/MARKDOWN.HTML'
         latest: true
         fileName: ${{ steps.file-name.outputs.file_name }}
         tarBall: false
