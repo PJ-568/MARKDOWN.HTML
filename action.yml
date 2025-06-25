@@ -23,6 +23,12 @@ runs:
       uses: MatteoH2O1999/setup-rust@v1
       if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
 
+    - name: Cache Rust dependencies
+      if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
+      uses: Swatinem/rust-cache@v2
+      with:
+        cache-on-failure: "true"
+
     - name: Build project
       if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
       run: cargo build --release

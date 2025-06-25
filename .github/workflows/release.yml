@@ -50,6 +50,12 @@ jobs:
       if: steps.version-check.outputs.version != '0'
       uses: MatteoH2O1999/setup-rust@v1
 
+    - name: Cache Rust dependencies
+      if: steps.version-check.outputs.version != '0'
+      uses: Swatinem/rust-cache@v2
+      with:
+        cache-on-failure: "true"
+
     - name: Build project
       if: steps.version-check.outputs.version != '0'
       run: cargo build --release
