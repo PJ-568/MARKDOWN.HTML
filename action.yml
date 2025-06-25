@@ -4,8 +4,8 @@ author: 'PJ568'
 
 inputs:
   target-dir:
-    description: Directory to deploy the minimized HTML file
-    default: "."
+    description: Relative path under $GITHUB_WORKSPACE to deploy the minimized HTML file
+    default: ""
   file-name:
     description: Name of the minimized HTML file
     default: "index.html"
@@ -19,45 +19,42 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Setup Rust
-      uses: MatteoH2O1999/setup-rust@v1
-      if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
-      working-directory: ${{ github.action_path }}
 
-    - name: Cache Rust dependencies
-      if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
-      uses: Swatinem/rust-cache@v2
-      working-directory: 
-      with:
-        workspaces: "${{ github.action_path }} -> target"
-        cache-on-failure: "true"
-
-    - name: Build project
-      if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
-      run: cargo build --release
-      shell: bash
-      working-directory: ${{ github.action_path }}
-
-    - name: Generate minimized HTML
-      if: ${{ inputs.use-minified == 'true' || inputs.use-all-in-one == 'true' }}
-      run: cargo run --release -- index.html
-      shell: bash
-      working-directory: ${{ github.action_path }}
-
-    - name: Deploy file
+    - name: Get version
+      id: version-get
       run: |
-        mkdir -p "${{ inputs.target-dir }}"
-        USE_MINIFIED=""
-        USE_ALL_IN_ONE=""
-        if [ "${{ inputs.use-minified }}" = "true" ]; then
-          USE_MINIFIED=".min"
+        chmod +x ./scripts/get-version.bash
+        VERSION=$(./scripts/get-version.bash)
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
+        if [ "$VERSION" != "0" ]; then
+          echo "Version detected: $VERSION"
+        else
+          echo "No version detacted"
         fi
+      shell: bash
+
+    - name: Generate file name
+      run: |
+        USE_ALL_IN_ONE=""
+        USE_MINIFIED=""
         if [ "${{ inputs.use-all-in-one }}" = "true" ]; then
           USE_ALL_IN_ONE=".allinone"
         fi
-        cp -uv index${USE_ALL_IN_ONE}${USE_MINIFIED}.html "${{ inputs.target-dir }}/${{ inputs.file-name }}"
+        if [ "${{ inputs.use-minified }}" = "true" ]; then
+          USE_MINIFIED=".min"
+        fi
+        echo "file_name=index${USE_ALL_IN_ONE}${USE_MINIFIED}.html" >> $GITHUB_OUTPUT
       shell: bash
-      working-directory: ${{ github.action_path }}
+
+    - name: Deploy pre-generated markdown.html file
+      uses: robinraju/release-downloader@v1
+      with:
+        repository: 'PJ-568/MAKRDOWN.HTML'
+        tag: ${{ steps.version-get.outputs.version }}
+        fileName: ${{ steps.file-name.outputs.file_name }}
+        tarBall: false
+        zipBall: false
+        out-file-path: ${{ inputs.target-dir }}
 
 branding:
   icon: 'book-open'

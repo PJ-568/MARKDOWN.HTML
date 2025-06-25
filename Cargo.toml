@@ -1,5 +1,5 @@
 [package]
-name = "markdown-html"
+name = "markdown-html-generator"
 version = "1.8.0"
 edition = "2021"
 
