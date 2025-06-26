@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.17.9" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.18.0" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -326,6 +326,41 @@
         }
       }
 
+      // 加载 CSS
+      function loadCSS(url) {
+        return new Promise((resolve, reject) => {
+          //// 检查是否已加载
+          const existingLinks = document.querySelectorAll(`link[href="${url}"]`);
+          if (existingLinks.length > 0) {
+            return resolve(url);
+          }
+
+          //// 创建新的 link 元素
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.type = 'text/css';
+          link.href = url;
+
+          //// 成功加载处理
+          link.onload = () => {
+            link.onload = null;
+            link.onerror = null;
+            resolve(url);
+          };
+
+          //// 加载失败处理
+          link.onerror = () => {
+            link.onerror = null;
+            link.onload = null;
+            document.head.removeChild(link);
+            reject(new Error(`无法加载CSS文件: ${url}`));
+          };
+
+          //// 添加到文档头部
+          document.head.appendChild(link);
+        });
+      }
+
       // 等待动画结束
       function waitForAnimationsEnd(parentElement, selector, animationNames) {
         return new Promise(resolve => {
@@ -494,6 +529,7 @@
         const images = linkDoc.querySelectorAll('img');
         images.forEach(img => {
           const src = img.getAttribute('src');
+          img.setAttribute('loading', 'lazy');
           if (src && !isExternalLink(src) && isRelativePath(src)) {
             var absolutePath = pValue ? getDirectory(mdPath) + src : getPath() + src;
             absolutePath = new URL(absolutePath, 'http://example.com').pathname;
@@ -590,6 +626,7 @@
 
       // 初始化
       function initialize() {
+        startLoad();	//// 开始加载动画
         initDarkmode();	//// 初始化深色模式
         initHomeBtn();	//// 初始化返回首页按钮
         initAboutBtn();	//// 初始化关于按钮
@@ -598,6 +635,8 @@
         initPJAX();	//// 初始化 PJAX
         initCustomPJAXResponse();	//// 初始化自定义 PJAX 响应
         initCustomPJAXEventListener();	//// 初始化自定义 PJAX 事件监听器
+        loadCSS('https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css'); //// 加载字体 CSS
+        endLoad(); //// 结束加载动画
       }
 
       // 触发器
@@ -1017,8 +1056,6 @@
   </style>
   <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/highlight.js/11.4.0/styles/default.min.css"
     type="text/css" rel="stylesheet" />
-  <link rel="stylesheet"
-    href="https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css" />
 </head>
 
 <body>
