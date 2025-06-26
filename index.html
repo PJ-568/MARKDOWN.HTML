@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.17.8" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.17.9" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -409,7 +409,7 @@
         }
         try {
           pValue = mdPath ? mdPath : path;
-          updateContent(await getMarkdown((mdPath ? mdPath : path), response))
+          updateContent(await getMarkdown((mdPath ? mdPath : path), response), pValue)
           document.querySelector('html').classList.add('loaded');	//// 防止缓存的页面被自定义 PJAX 中覆写的处理响应的函数捕获
           waitForAnimationsEnd(document.querySelector('.markdown-body'), '.content, .old-content', ['Animation-slideInRight', 'Animation-slideInLeft']).then(async () => {
             await showMarkdownEnded();

@@ -1,5 +1,4 @@
 use minify_html::{minify, Cfg};
-use reqwest::blocking::get;
 use scraper::{Html, Selector};
 use std::fs::{read, write};
 use std::path::{Path, PathBuf};
