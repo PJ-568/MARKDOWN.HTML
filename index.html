@@ -457,7 +457,7 @@
 
       // 读取并解析指定文件
       const getMarkdown = async (mdPath, response = null) => {
-        // 生成目录
+        //// 生成目录
         function generateOutline(doc) {
           const headings = Array.from(doc.querySelectorAll('h1, h2, h3, h4, h5, h6'));
           if (headings.length === 0) return '<i>无目录</i>';
@@ -467,10 +467,10 @@
           headings.forEach(heading => {
             const level = parseInt(heading.tagName.charAt(1));
             const id = heading.textContent.toLowerCase()
-              .replace(/ /g, '-') // 将空格替换为连字符
-              .replace(/[^\w\u4e00-\u9fa5-]/g, ''); // 保留字母、数字、下划线、中文字符和连字符
+              .replace(/ /g, '-') //// 将空格替换为连字符
+              .replace(/[^\w\u4e00-\u9fa5-]/g, ''); //// 保留字母、数字、下划线、中文字符和连字符
 
-            // 设置 id 属性以便链接跳转
+            //// 设置 id 属性以便链接跳转
             heading.setAttribute('id', id);
 
             while (stack.length > 0 && stack[stack.length - 1].level >= level) {
@@ -505,16 +505,16 @@
         }
         var markdown_content = await response.text();
         var content = marked.parse(markdown_content);
-        // 因为是在本页面渲染一个其它页面的文档：
-        // - 从 content 中获取所有 href 以 .md 结尾的 a 标签；
-        // - 遍历这些 a 标签，如果 href 不是外链，则判断 href 是否为相对路径……最后转换为 ?p=<到该文件的绝对路径>
-        // - 从 content 中获取所有 img 标签；
-        // - 遍历这些 img 标签，如果 src 不是外链，则判断 src 是否为相对路径……最后转换为 <到该文件的绝对路径>
+        //// 因为是在本页面渲染一个其它页面的文档：
+        //// - 从 content 中获取所有 href 以 .md 结尾的 a 标签；
+        //// - 遍历这些 a 标签，如果 href 不是外链，则判断 href 是否为相对路径……最后转换为 ?p=<到该文件的绝对路径>
+        //// - 从 content 中获取所有 img 标签；
+        //// - 遍历这些 img 标签，如果 src 不是外链，则判断 src 是否为相对路径……最后转换为 <到该文件的绝对路径>
 
         const linkParser = new DOMParser();
         const linkDoc = linkParser.parseFromString(`<div>${content}</div>`, 'text/html');
 
-        // 处理所有以 .md 结尾的链接
+        //// 处理所有以 .md 结尾的链接
         const mdLinks = linkDoc.querySelectorAll('a[href$=".md"]');
         mdLinks.forEach(link => {
           const href = link.getAttribute('href');
@@ -525,7 +525,7 @@
           }
         });
 
-        // 处理所有图片
+        //// 处理所有图片
         const images = linkDoc.querySelectorAll('img');
         images.forEach(img => {
           const src = img.getAttribute('src');
@@ -537,15 +537,15 @@
           }
         });
 
-        // 更新处理后的 markdown 内容
+        //// 更新处理后的 markdown 内容
         content = linkDoc.body.innerHTML.replace(/^<div>|<\/div>$/g, '');
 
-        // 空文件
+        //// 空文件
         if (content === '') {
           content = '<i>空文件</i>';
         }
 
-        // 添加目录
+        //// 添加目录
         content = `<details class="outline"><summary>${decodeURIComponent(mdPath)}</summary></details><hr>${content}`;
         const parser = new DOMParser();
         const doc = parser.parseFromString(content, 'text/html');
@@ -558,7 +558,7 @@
 
       // 初始化自定义 PJAX 响应
       function initCustomPJAXResponse() {
-        // 覆写 PJAX 处理响应的函数，在内容插入页面之前实现 markdown 的渲染
+        //// 覆写 PJAX 处理响应的函数，在内容插入页面之前实现 markdown 的渲染
         PJAX._handleResponse = PJAX.handleResponse;
         PJAX.handleResponse = async function (responseText, request, href, options) {
           if (request.responseText.startsWith('<!doctype html><html><markdown-html') || request.responseText.startsWith(`<!doctype html>
