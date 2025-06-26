@@ -18,10 +18,10 @@
 
 | 文件名 | 说明 |
 | :----- | :--- |
-| index.html | 默认 HTML 入口文件，使用 CDN 引入依赖。 |
-| index.min.html | 压缩后的 HTML 入口文件，使用 CDN 引入依赖。 |
-| index.allinone.html | 全合一 HTML 入口文件，默认包含所有可被脚本下载的依赖。 |
-| index.allinone.min.html | 压缩后的全合一 HTML 入口文件，默认包含所有可被脚本下载的依赖。 |
+| [index.html](index.html) | 默认 HTML 入口文件，使用 CDN 引入依赖。 |
+| [index.min.html](index.min.html) | 压缩后的 HTML 入口文件，使用 CDN 引入依赖。 |
+| [index.allinone.html](index.allinone.html) | 全合一 HTML 入口文件，默认包含所有可被脚本下载的依赖。 |
+| [index.allinone.min.html](index.allinone.min.html) | 压缩后的全合一 HTML 入口文件，默认包含所有可被脚本下载的依赖。 |
 
 ### 手动部署
 
@@ -49,7 +49,7 @@
 ## 代码或内容贡献
 
 欢迎每一位对本项目感兴趣的朋友贡献代码和内容。
-请参阅[程序逻辑](doc/logic.md)。
+请参阅[程序逻辑](doc/logic.md)、[脚本与主程序设计分析](doc/scripts.md)和[工作流程](doc/workflow.md)，并确保你的贡献符合项目规范。
 
 较为简单的提交贡献方法可查阅[贡献文档](CONTRIBUTING.md)以了解相关信息。
 

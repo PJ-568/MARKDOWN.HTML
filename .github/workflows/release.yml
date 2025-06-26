@@ -76,6 +76,15 @@ jobs:
         cp -v index.min.html ../release/
         cp -v index.allinone.html ../release/
         cp -v index.allinone.min.html ../release/
+        # Misc
+        cp -v LICENSE ../release/
+        cp -v README.md ../release/
+        cp -v README_EN.md ../release/
+        cp -v CONTRIBUTING.md ../release/
+        cp -v CNAME ../release/
+        cp -rv doc ../release/
+        cp -rv scripts ../release/
+        cp -rv src ../release/
       shell: bash
       working-directory: ${{ github.action_path }}
 
@@ -86,6 +95,18 @@ jobs:
         generateReleaseNotes: true
         tag: "v${{ steps.version-check.outputs.version }}"
         artifacts: "../release/index.html,../release/index.min.html,../release/index.allinone.html,../release/index.allinone.min.html"
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '../release'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 
     - name: Delete tag
       if: (cancelled() || failure()) && steps.push-tag.outputs.tag_name != ''
