@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.18.0" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.18.1" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -316,7 +316,7 @@
       }
 
       // 处理错误
-      function updateContent(article, title = null, mdPath = null) {
+      function updateContent(article, title = null, mdPath = pValue) {
         try {
           document.querySelector('.markdown-body').innerHTML = `<div class="old-content Animated Animated-remove Animated--reverse Animate--fast Animate--noDelay Animate--slideInLeft">${document.querySelector('.markdown-body .content').innerHTML}</div><div class="content Animated Animate--slideInRight">${article}</div>`;
           firstH1 = document.querySelector('.markdown-body .content h1');
@@ -444,7 +444,7 @@
         }
         try {
           pValue = mdPath ? mdPath : path;
-          updateContent(await getMarkdown((mdPath ? mdPath : path), response), pValue)
+          updateContent(await getMarkdown((mdPath ? mdPath : path), response))
           document.querySelector('html').classList.add('loaded');	//// 防止缓存的页面被自定义 PJAX 中覆写的处理响应的函数捕获
           waitForAnimationsEnd(document.querySelector('.markdown-body'), '.content, .old-content', ['Animation-slideInRight', 'Animation-slideInLeft']).then(async () => {
             await showMarkdownEnded();
