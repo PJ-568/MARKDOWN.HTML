@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html>
-<markdown-html version="1.18.3" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
+<markdown-html version="1.18.4" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
   license="CC BY-SA 4.0 International"></markdown-html>
 
 <head>
@@ -667,20 +667,6 @@
       });
       //// 点击事件委托
       document.addEventListener('click', function (event) {
-        const imgOrSvg = event.target.closest('.content img, .content svg');
-        if (imgOrSvg) {
-          const url = imgOrSvg.getAttribute('src') || imgOrSvg.getAttribute('xlink:href');
-          if (url) {
-            window.open(url, '_blank');
-            event.preventDefault();
-          } else {
-            const newWindow = window.open('', '_blank');
-            newWindow.document.write(imgOrSvg.outerHTML);
-            newWindow.document.close();
-            event.preventDefault();
-          }
-          return;
-        }
         if (event.target.closest('.back-btn')) {
           window.history.back();
         } else if (event.target.closest('.refresh-btn')) {
@@ -709,6 +695,17 @@
           const href = event.target.getAttribute('href');
           if (isExternalLink(href)) {
             window.open(href, '_blank');
+            event.preventDefault();
+          }
+        } else if (event.target.closest('.content img, .content svg')) {
+          const url = event.target.getAttribute('src') || event.target.getAttribute('xlink:href');
+          if (url) {
+            window.open(url, '_blank');
+            event.preventDefault();
+          } else {
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write(imgOrSvg.outerHTML);
+            newWindow.document.close();
             event.preventDefault();
           }
         }
