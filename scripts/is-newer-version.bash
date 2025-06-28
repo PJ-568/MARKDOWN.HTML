@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 从 ../index.html 中获取版本号 | Get version number from ../index.html
+# 判断是否需要发行新版本 | Checking for a Newer Version
 
 # 设置定量 | Quantities
 ## 当前脚本所在目录 | Current Script Directory
