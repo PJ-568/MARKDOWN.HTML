@@ -49,7 +49,7 @@
 ## 代码或内容贡献
 
 欢迎每一位对本项目感兴趣的朋友贡献代码和内容。
-请参阅[程序逻辑](doc/logic.md)、[脚本与主程序设计分析](doc/scripts.md)和[工作流程](doc/workflow.md)，并确保你的贡献符合项目规范。
+请参阅[程序逻辑](doc/logic.md)、[清单](doc/TODO.md)、[脚本与主程序设计分析](doc/scripts.md)和[工作流程](doc/workflow.md)，并确保你的贡献符合项目规范。
 
 较为简单的提交贡献方法可查阅[贡献文档](CONTRIBUTING.md)以了解相关信息。
 

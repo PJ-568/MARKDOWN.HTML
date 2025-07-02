@@ -52,6 +52,7 @@ We welcome contributions to this project. Please review:
 
 - [Program Logic](doc/logic.md)
 - [Script Design](doc/scripts.md)
+- [To-do List](doc/TODO.md)
 - [Workflow](doc/workflow.md)
 
 Ensure your contributions follow project specifications. For contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
