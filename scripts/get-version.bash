@@ -36,7 +36,8 @@ if [ ! -f "$FILE_PATH" ]; then
 fi
 
 ## 从 <markdown-html> 标签中提取第一个 version 属性的值
-VERSION=$(grep -oP '<markdown-html\s+version="\K[^"]+' "$FILE_PATH" | head -1)
+# 使用 tr 删除换行符，使整个文件成为单行
+VERSION=$(tr -d '\n' < "$FILE_PATH" | grep -oP '<markdown-html\s+version="\K[^"]+')
 if [ -z "$VERSION" ]; then
   recho "错误：未找到版本号" "Error: Version not found"
   exit 1

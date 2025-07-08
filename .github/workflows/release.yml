@@ -21,8 +21,6 @@ jobs:
     - name: Check version
       id: version-check
       run: |
-        chmod +x ./scripts/is-newer-version.bash
-        chmod +x ./scripts/get-version.bash
         VERSION=$(./scripts/is-newer-version.bash)
         echo "version=${VERSION}" >> $GITHUB_OUTPUT
         if [ "$VERSION" != "0" ]; then
