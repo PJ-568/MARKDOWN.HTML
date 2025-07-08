@@ -1,42 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
-<markdown-html version="1.18.6" author="PJ568" repo="https://github.com/PJ-568/markdown.html"
-  license="CC BY-SA 4.0 International"></markdown-html>
+  <markdown-html
+    version="1.18.7"
+    author="PJ568"
+    repo="https://github.com/PJ-568/markdown.html"
+    license="CC BY-SA 4.0 International"
+  ></markdown-html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="HTML read markdown">
-  <meta name="keywords" content="markdown, html, renderer, low-dependency, one-click deployment">
-  <meta name="author" content="PJ568">
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPCEtLSDog4zmma/mlrnlnZfku6PooajmlofmoaMgLS0+CiAgPHJlY3QgeD0iNjQiIHk9IjY0IiB3aWR0aD0iMzg0IiBoZWlnaHQ9IjM4NCIgcng9IjI0IiBmaWxsPSIjMkU3RDMyIiBzdHJva2U9IiMxQjVFMjAiIHN0cm9rZS13aWR0aD0iOCIvPgogIAogIDwhLS0g5paH5qGj5YaF5a6557q/5p2hIC0tPgogIDxyZWN0IHg9Ijk2IiB5PSIxMjgiIHdpZHRoPSIzMjAiIGhlaWdodD0iMTYiIHJ4PSI0IiBmaWxsPSIjRThGNUU5Ii8+CiAgPHJlY3QgeD0iOTYiIHk9IjE2OCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxNiIgcng9IjQiIGZpbGw9IiNFOEY1RTkiLz4KICA8cmVjdCB4PSI5NiIgeT0iMjA4IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjE2IiByeD0iNCIgZmlsbD0iI0U4RjVFOSIvPgogIDxyZWN0IHg9Ijk2IiB5PSIyNDgiIHdpZHRoPSIzMjAiIGhlaWdodD0iMTYiIHJ4PSI0IiBmaWxsPSIjRThGNUU5Ii8+CiAgPHJlY3QgeD0iOTYiIHk9IjI4OCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxNiIgcng9IjQiIGZpbGw9IiNFOEY1RTkiLz4KICA8cmVjdCB4PSI5NiIgeT0iMzI4IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjE2IiByeD0iNCIgZmlsbD0iI0U4RjVFOSIvPgogIAogIDwhLS0g6aG555uu5ZCN56ew57yp5YaZIC0tPgogIDx0ZXh0IHg9IjI1NiIgeT0iNDIwIiBmb250LWZhbWlseT0iU2FyYXNhIFRlcm0gU0MgTmVyZCcsICdNYXBsZSBNb25vIENOJywgVWJ1bnR1LCBSb2JvdG8sICdPcGVuIFNhbnMnLCAnTWljcm9zb2Z0IFlhSGVpJywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDgiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjRThGNUU5Ij4mbHQ7TUgmZ3Q7PC90ZXh0Pgo8L3N2Zz4=">
-  <meta name="viewport" content="width=256, initial-scale=1">
-  <script defer src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/marked/4.0.2/marked.min.js"
-    type="text/javascript"></script>
-  <script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js" type="text/javascript"></script>
-  <script src="https://lib.baomitu.com/translate.js/3.7.2/translate.js" type="text/javascript"></script>
-  <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/Darkmode.js/1.5.7/darkmode-js.min.js"
-    type="application/javascript"></script>
-  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/mermaid/8.14.0/mermaid.min.js"
-    type="application/javascript"></script>
-  <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/highlight.js/11.4.0/highlight.min.js"
-    type="application/javascript"></script>
-  <script>
-    // 使用 IIFE 包裹以避免全局变量污染
-    (function () {
-      function getVersion() {
-        const markdownElement = document.querySelector('markdown-html');
-        if (markdownElement) {
-          const version = markdownElement.getAttribute('version');
-          return version;
-        } else {
-          return '未知';
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="HTML read markdown" />
+    <meta
+      name="keywords"
+      content="markdown, html, renderer, low-dependency, one-click deployment"
+    />
+    <meta name="author" content="PJ568" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPCEtLSDog4zmma/mlrnlnZfku6PooajmlofmoaMgLS0+CiAgPHJlY3QgeD0iNjQiIHk9IjY0IiB3aWR0aD0iMzg0IiBoZWlnaHQ9IjM4NCIgcng9IjI0IiBmaWxsPSIjMkU3RDMyIiBzdHJva2U9IiMxQjVFMjAiIHN0cm9rZS13aWR0aD0iOCIvPgogIAogIDwhLS0g5paH5qGj5YaF5a6557q/5p2hIC0tPgogIDxyZWN0IHg9Ijk2IiB5PSIxMjgiIHdpZHRoPSIzMjAiIGhlaWdodD0iMTYiIHJ4PSI0IiBmaWxsPSIjRThGNUU5Ii8+CiAgPHJlY3QgeD0iOTYiIHk9IjE2OCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxNiIgcng9IjQiIGZpbGw9IiNFOEY1RTkiLz4KICA8cmVjdCB4PSI5NiIgeT0iMjA4IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjE2IiByeD0iNCIgZmlsbD0iI0U4RjVFOSIvPgogIDxyZWN0IHg9Ijk2IiB5PSIyNDgiIHdpZHRoPSIzMjAiIGhlaWdodD0iMTYiIHJ4PSI0IiBmaWxsPSIjRThGNUU5Ii8+CiAgPHJlY3QgeD0iOTYiIHk9IjI4OCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxNiIgcng9IjQiIGZpbGw9IiNFOEY1RTkiLz4KICA8cmVjdCB4PSI5NiIgeT0iMzI4IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjE2IiByeD0iNCIgZmlsbD0iI0U4RjVFOSIvPgogIAogIDwhLS0g6aG555uu5ZCN56ew57yp5YaZIC0tPgogIDx0ZXh0IHg9IjI1NiIgeT0iNDIwIiBmb250LWZhbWlseT0iU2FyYXNhIFRlcm0gU0MgTmVyZCcsICdNYXBsZSBNb25vIENOJywgVWJ1bnR1LCBSb2JvdG8sICdPcGVuIFNhbnMnLCAnTWljcm9zb2Z0IFlhSGVpJywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDgiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjRThGNUU5Ij4mbHQ7TUgmZ3Q7PC90ZXh0Pgo8L3N2Zz4="
+    />
+    <meta name="viewport" content="width=256, initial-scale=1" />
+    <script
+      defer
+      src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/marked/4.0.2/marked.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://lib.baomitu.com/translate.js/3.7.2/translate.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/Darkmode.js/1.5.7/darkmode-js.min.js"
+      type="application/javascript"
+    ></script>
+    <script
+      src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/mermaid/8.14.0/mermaid.min.js"
+      type="application/javascript"
+    ></script>
+    <script
+      src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/highlight.js/11.4.0/highlight.min.js"
+      type="application/javascript"
+    ></script>
+    <script>
+      // 使用 IIFE 包裹以避免全局变量污染
+      (function () {
+        function getVersion() {
+          const markdownElement = document.querySelector("markdown-html");
+          if (markdownElement) {
+            const version = markdownElement.getAttribute("version");
+            return version;
+          } else {
+            return "未知";
+          }
         }
-      }
 
-      function getAbout() {
-        return `
+        function getAbout() {
+          return `
 # 关于
 
 ## MARKDOWN.HTML
@@ -57,1087 +82,1242 @@
 详情请访问 [GitHub](https://github.com/PJ-568/MARKDOWN.HTML) 或 [Gitee](https://gitee.com/PJ-568/MARKDOWN.HTML) 仓库。
 
 `;
-      }
-
-      // 加载动画相关
-      var loadingState = {
-        countLoading: 0
-      };
-      Object.defineProperty(loadingState, 'countLoading', {
-        get: function () {
-          return this._countLoading;
-        },
-        set: function (newValue) {
-          if (newValue < 0) {
-            newValue = 0;
-          }
-          const loadingBar = document.querySelector('.loading-bar');
-          const progress = document.querySelector('.loading-bar .progress');
-          if (this.countLoading === 0 && newValue > 0) {
-            var loadingBarWidth = 20;
-            var MAX_LOADING_WIDTH = 95;
-
-            loadingBar.classList.add('loading');
-            progress.style.width = loadingBarWidth + '%';
-
-            clearInterval(timer);
-            timer = setInterval(function () {
-              loadingBarWidth += 3;
-
-              if (loadingBarWidth > MAX_LOADING_WIDTH) {
-                loadingBarWidth = MAX_LOADING_WIDTH;
-              }
-
-              progress.style.width = loadingBarWidth + '%';
-            }, 500);
-          } else if (this.countLoading > 0 && newValue === 0) {
-            clearInterval(timer);
-            progress.style.width = '100%';
-            loadingBar.classList.remove('loading');
-
-            setTimeout(function () {
-              progress.style.width = 0;
-            }, 400);
-          }
-          this._countLoading = newValue;
         }
-      });
-      loadingState.countLoading = 0;
-      function startLoad() {
-        loadingState.countLoading = loadingState.countLoading + 1;
-      }
-      function endLoad() {
-        loadingState.countLoading = loadingState.countLoading - 1;
-      }
-      var timer = null;
 
-      // 文档解析功能相关
-      var notExistIndexPage = null;  // 是否不存在索引页
-      var pValue = null;
-      async function getPValue() {
-        if (pValue) {
-          return pValue;
-        } else {
-          return await decodeMDPath(window.location.href);
-        }
-      }
-
-      // PJAX 相关
-      let PJAX;
-
-      // 深色模式相关
-      let darkmode;
-
-      // 自定义 PJAX 相关
-      const existPushState = (history && history.pushState);
-      var level = 1;  // 当前页面的层级
-      var lastLevel = 0;
-
-      // 初始化 PJAX
-      function initPJAX() {
-        try {
-          const Pjax = window.Pjax || function () {
-            console.warn('Pjax 不存在？');
-          };
-          PJAX = new Pjax({
-            selectors: [
-              'head title',
-              '.markdown-body',
-              '.pjax-reload'
-            ],
-            switches: {
-              ".markdown-body": Pjax.switches.sideBySide
-            },
-            switchesOptions: {
-              ".markdown-body": {
-                classNames: {
-                  remove: "Animated Animated-remove Animated--reverse Animate--fast Animate--noDelay",
-                  add: "Animated",
-                  backward: "Animate--slideInRight",
-                  forward: "Animate--slideInLeft"
-                }
-              }
-            },
-            cacheBust: false
-          });
-        } catch (e) {
-          console.error('PJAX 初始化出错：' + e);
-        }
-      }
-
-      // translate-js 翻译系统
-      //// 初始化翻译系统
-      function initTranslate() {
-        try {
-          translate.service.use('client.edge');
-          translate.request.listener.start();
-          translate.setAutoDiscriminateLocalLanguage();
-          translate.language.setUrlParamControl();
-          translate.ignore.class.push('notTranslate');
-          translate.execute();
-        } catch (e) {
-          console.error('翻译系统出错：' + e);
-        }
-      }
-
-      // Darkmode.js 深色模式
-      function initDarkmode() {
-        try {
-          const Darkmode = window.Darkmode || function () {
-            console.warn('Darkmode.js 不存在？');
-          };
-          darkmode = new Darkmode();
-        } catch (e) {
-          console.error('初始化 Darkmode.js 出错：' + e);
-        }
-      }
-
-      //// 检查并提示翻译
-      function infoTranslate() {
-        try {
-          const currentLang = translate.language.getCurrent();
-          const originalLang = translate.language.getLocal();
-          if (currentLang !== originalLang) {
-            const translateInfo = document.querySelectorAll('.translate-info');
-            if (translateInfo) {
-              translateInfo.forEach(function (item) {
-                item.remove();
-              })
+        // 加载动画相关
+        var loadingState = {
+          countLoading: 0,
+        };
+        Object.defineProperty(loadingState, "countLoading", {
+          get: function () {
+            return this._countLoading;
+          },
+          set: function (newValue) {
+            if (newValue < 0) {
+              newValue = 0;
             }
-            // 获取 .markdown-body 元素
-            var bq = document.createElement('blockquote');
-            bq.classList.add('translate-info');
+            const loadingBar = document.querySelector(".loading-bar");
+            const progress = document.querySelector(".loading-bar .progress");
+            if (this.countLoading === 0 && newValue > 0) {
+              var loadingBarWidth = 20;
+              var MAX_LOADING_WIDTH = 95;
 
-            var infoBody = document.createElement('p');
-            infoBody.innerText = '当前页面已翻译。您可以：';
-            var msgBody = document.createElement('p');
+              loadingBar.classList.add("loading");
+              progress.style.width = loadingBarWidth + "%";
 
-            var switchButton = document.createElement('a');
-            switchButton.classList.add('translate-switch');
-            switchButton.href = 'javascript:;';
-            switchButton.title = '切换到原语言';
-            switchButton.innerText = '切换到文章原本的语言';
+              clearInterval(timer);
+              timer = setInterval(function () {
+                loadingBarWidth += 3;
 
-            bq.appendChild(infoBody);
-            bq.appendChild(switchButton);
+                if (loadingBarWidth > MAX_LOADING_WIDTH) {
+                  loadingBarWidth = MAX_LOADING_WIDTH;
+                }
 
-            const mainElement = document.querySelector('.markdown-body .content');
-            mainElement.insertBefore(bq, mainElement.children[1]);
+                progress.style.width = loadingBarWidth + "%";
+              }, 500);
+            } else if (this.countLoading > 0 && newValue === 0) {
+              clearInterval(timer);
+              progress.style.width = "100%";
+              loadingBar.classList.remove("loading");
+
+              setTimeout(function () {
+                progress.style.width = 0;
+              }, 400);
+            }
+            this._countLoading = newValue;
+          },
+        });
+        loadingState.countLoading = 0;
+        function startLoad() {
+          loadingState.countLoading = loadingState.countLoading + 1;
+        }
+        function endLoad() {
+          loadingState.countLoading = loadingState.countLoading - 1;
+        }
+        var timer = null;
+
+        // 文档解析功能相关
+        var notExistIndexPage = null; // 是否不存在索引页
+        var pValue = null;
+        async function getPValue() {
+          if (pValue) {
+            return pValue;
+          } else {
+            return await decodeMDPath(window.location.href);
           }
-        } catch (e) {
-          console.error('检查并提示翻译出错：' + e);
         }
-      }
 
-      //// 刷新翻译
-      function refreshTranslate() {
-        try {
-          translate.selectLanguageTag.refreshRender();
-        } catch (e) {
-          console.error('刷新翻译出错：' + e);
+        // PJAX 相关
+        let PJAX;
+
+        // 深色模式相关
+        let darkmode;
+
+        // 自定义 PJAX 相关
+        const existPushState = history && history.pushState;
+        var level = 1; // 当前页面的层级
+        var lastLevel = 0;
+
+        // 初始化 PJAX
+        function initPJAX() {
+          try {
+            const Pjax =
+              window.Pjax ||
+              function () {
+                console.warn("Pjax 不存在？");
+              };
+            PJAX = new Pjax({
+              selectors: ["head title", ".markdown-body", ".pjax-reload"],
+              switches: {
+                ".markdown-body": Pjax.switches.sideBySide,
+              },
+              switchesOptions: {
+                ".markdown-body": {
+                  classNames: {
+                    remove:
+                      "Animated Animated-remove Animated--reverse Animate--fast Animate--noDelay",
+                    add: "Animated",
+                    backward: "Animate--slideInRight",
+                    forward: "Animate--slideInLeft",
+                  },
+                },
+              },
+              cacheBust: false,
+            });
+          } catch (e) {
+            console.error("PJAX 初始化出错：" + e);
+          }
         }
-      }
 
-      // 获取文件所在目录
-      function getDirectory(path) {
-        path = new URL(path, 'http://example.com').pathname;
-        const lastSlashIndex = path.lastIndexOf('/');
-        return path.substring(0, lastSlashIndex + 1);
-      }
+        // translate-js 翻译系统
+        //// 初始化翻译系统
+        function initTranslate() {
+          try {
+            translate.service.use("client.edge");
+            translate.request.listener.start();
+            translate.setAutoDiscriminateLocalLanguage();
+            translate.language.setUrlParamControl();
+            translate.ignore.class.push("notTranslate");
+            translate.execute();
+          } catch (e) {
+            console.error("翻译系统出错：" + e);
+          }
+        }
 
-      // 获取 markdown.html 当前所加载的 md 文件的所在路径
-      function getPath() {
-        return getDirectory(window.location.href);
-      }
+        // Darkmode.js 深色模式
+        function initDarkmode() {
+          try {
+            const Darkmode =
+              window.Darkmode ||
+              function () {
+                console.warn("Darkmode.js 不存在？");
+              };
+            darkmode = new Darkmode();
+          } catch (e) {
+            console.error("初始化 Darkmode.js 出错：" + e);
+          }
+        }
 
-      // 将 ?p= 后面的值转换为绝对路径
-      /* 
+        //// 检查并提示翻译
+        function infoTranslate() {
+          try {
+            const currentLang = translate.language.getCurrent();
+            const originalLang = translate.language.getLocal();
+            if (currentLang !== originalLang) {
+              const translateInfo =
+                document.querySelectorAll(".translate-info");
+              if (translateInfo) {
+                translateInfo.forEach(function (item) {
+                  item.remove();
+                });
+              }
+              // 获取 .markdown-body 元素
+              var bq = document.createElement("blockquote");
+              bq.classList.add("translate-info");
+
+              var infoBody = document.createElement("p");
+              infoBody.innerText = "当前页面已翻译。您可以：";
+              var msgBody = document.createElement("p");
+
+              var switchButton = document.createElement("a");
+              switchButton.classList.add("translate-switch");
+              switchButton.href = "javascript:;";
+              switchButton.title = "切换到原语言";
+              switchButton.innerText = "切换到文章原本的语言";
+
+              bq.appendChild(infoBody);
+              bq.appendChild(switchButton);
+
+              const mainElement = document.querySelector(
+                ".markdown-body .content"
+              );
+              mainElement.insertBefore(bq, mainElement.children[1]);
+            }
+          } catch (e) {
+            console.error("检查并提示翻译出错：" + e);
+          }
+        }
+
+        //// 刷新翻译
+        function refreshTranslate() {
+          try {
+            translate.selectLanguageTag.refreshRender();
+          } catch (e) {
+            console.error("刷新翻译出错：" + e);
+          }
+        }
+
+        // 获取文件所在目录
+        function getDirectory(path) {
+          path = new URL(path, "http://example.com").pathname;
+          const lastSlashIndex = path.lastIndexOf("/");
+          return path.substring(0, lastSlashIndex + 1);
+        }
+
+        // 获取 markdown.html 当前所加载的 md 文件的所在路径
+        function getPath() {
+          return getDirectory(window.location.href);
+        }
+
+        // 将 ?p= 后面的值转换为绝对路径
+        /* 
         输出的值是 /path/to/file.md
         当其为 null 时，根据是否存在 index.md 文件来决定返回的值
        */
-      async function decodeMDPath(path) {
-        const url = new URL(path);
-        const params = new URLSearchParams(url.search);
-        path = formatMDPath(params.get('p'));
-        return path;
-      }
+        async function decodeMDPath(path) {
+          const url = new URL(path);
+          const params = new URLSearchParams(url.search);
+          path = formatMDPath(params.get("p"));
+          return path;
+        }
 
-      // 格式化路径
-      /* 
+        // 格式化路径
+        /* 
         如果 mdPath 为 null，则返回 null，如果 mdPath 是路径，则返回该路径下 /index.md
         return: 返回格式化后的文件路径，一定是绝对路径，或者 null
        */
-      function formatMDPath(mdPath) {
-        if (mdPath) {
-          if (isRelativePath(mdPath)) {
-            mdPath = getPath() + mdPath;
-          }
-          mdPath = new URL(mdPath, 'http://example.com').pathname;
-          if (!mdPath.endsWith('.md')) {
-            if (!mdPath.endsWith('/')) {
-              mdPath += '/';
+        function formatMDPath(mdPath) {
+          if (mdPath) {
+            if (isRelativePath(mdPath)) {
+              mdPath = getPath() + mdPath;
             }
-            mdPath += 'index.md';
-          }
-        }
-        return mdPath;
-      }
-
-      // 判断链接是否为外链
-      function isExternalLink(url) {
-        if (!url || typeof url !== 'string') return false;
-
-        //// 排除特殊协议
-        const excludedProtocols = ['#', 'javascript:', 'mailto:', 'tel:', 'data:'];
-        if (excludedProtocols.some(proto => url.startsWith(proto))) {
-          return false;
-        }
-
-        try {
-          const currentUrl = new URL(window.location.href);
-          const targetUrl = new URL(url, currentUrl.origin);
-
-          //// 排除非 HTTP(S) 协议
-          if (!['http:', 'https:'].includes(targetUrl.protocol)) return false;
-
-          //// 域名统一转小写比较
-          const currentHost = currentUrl.hostname.toLowerCase();
-          const targetHost = targetUrl.hostname.toLowerCase();
-
-          return currentHost !== targetHost;
-        } catch (e) {
-          return false;
-        }
-      }
-
-      // 判断路径是否为相对路径
-      function isRelativePath(path) {
-        return !path.match(/^\//); //// 不以 / 开头
-      }
-
-      // 处理错误
-      function updateContent(article, title = null, mdPath = pValue) {
-        try {
-          document.querySelector('.markdown-body').innerHTML = `<div class="old-content Animated Animated-remove Animated--reverse Animate--fast Animate--noDelay Animate--slideInLeft">${document.querySelector('.markdown-body .content').innerHTML}</div><div class="content Animated Animate--slideInRight">${article}</div>`;
-          firstH1 = document.querySelector('.markdown-body .content h1');
-          document.title = title ? title : (firstH1 ? firstH1.textContent : mdPath);
-        } catch (error) {
-          throw error;
-        }
-      }
-
-      // 加载 CSS
-      function loadCSS(url) {
-        return new Promise((resolve, reject) => {
-          //// 检查是否已加载
-          const existingLinks = document.querySelectorAll(`link[href="${url}"]`);
-          if (existingLinks.length > 0) {
-            return resolve(url);
-          }
-
-          //// 创建新的 link 元素
-          const link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.type = 'text/css';
-          link.href = url;
-
-          //// 成功加载处理
-          link.onload = () => {
-            link.onload = null;
-            link.onerror = null;
-            resolve(url);
-          };
-
-          //// 加载失败处理
-          link.onerror = () => {
-            link.onerror = null;
-            link.onload = null;
-            document.head.removeChild(link);
-            reject(new Error(`无法加载CSS文件: ${url}`));
-          };
-
-          //// 添加到文档头部
-          document.head.appendChild(link);
-        });
-      }
-
-      // 等待动画结束
-      function waitForAnimationsEnd(parentElement, selector, animationNames) {
-        return new Promise(resolve => {
-          var completedCount = 0;
-          const elements = parentElement.querySelectorAll(selector);
-          const totalElements = elements.length;
-
-          const handleAnimationEnd = function (event) {
-            if (animationNames.includes(event.animationName) && Array.from(elements).includes(event.target)) {
-              completedCount++;
-              if (completedCount === totalElements) {
-                parentElement.removeEventListener('animationend', handleAnimationEnd);
-                resolve();
+            mdPath = new URL(mdPath, "http://example.com").pathname;
+            if (!mdPath.endsWith(".md")) {
+              if (!mdPath.endsWith("/")) {
+                mdPath += "/";
               }
+              mdPath += "index.md";
             }
-          };
+          }
+          return mdPath;
+        }
 
-          parentElement.addEventListener('animationend', handleAnimationEnd);
-        });
-      }
+        // 判断链接是否为外链
+        function isExternalLink(url) {
+          if (!url || typeof url !== "string") return false;
 
-      // 处理错误
-      function handleError(mdPath, errorMessage) {
-        updateContent(`<h1>加载失败</h1><p>加载文档<code>${mdPath}</code>时出错：<code>${errorMessage}</code>。您可以尝试<a class="refresh-btn" href="">重新加载</a>或<a class="back-btn">返回</a>。</p>`, '加载失败');
-        waitForAnimationsEnd(document.querySelector('.markdown-body'), '.content, .old-content', ['Animation-slideInRight', 'Animation-slideInLeft']).then(() => {
-          customPushState(window.location.origin + window.location.pathname + (mdPath ? ('?p=' + mdPath) : ''));
-        });
-        endLoad();
-      }
+          //// 排除特殊协议
+          const excludedProtocols = [
+            "#",
+            "javascript:",
+            "mailto:",
+            "tel:",
+            "data:",
+          ];
+          if (excludedProtocols.some((proto) => url.startsWith(proto))) {
+            return false;
+          }
 
-      // 更新页面的 markdown 内容
-      /* 
+          try {
+            const currentUrl = new URL(window.location.href);
+            const targetUrl = new URL(url, currentUrl.origin);
+
+            //// 排除非 HTTP(S) 协议
+            if (!["http:", "https:"].includes(targetUrl.protocol)) return false;
+
+            //// 域名统一转小写比较
+            const currentHost = currentUrl.hostname.toLowerCase();
+            const targetHost = targetUrl.hostname.toLowerCase();
+
+            return currentHost !== targetHost;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        // 判断路径是否为相对路径
+        function isRelativePath(path) {
+          return !path.match(/^\//); //// 不以 / 开头
+        }
+
+        // 处理错误
+        function updateContent(article, title = null, mdPath = pValue) {
+          try {
+            document.querySelector(
+              ".markdown-body"
+            ).innerHTML = `<div class="old-content Animated Animated-remove Animated--reverse Animate--fast Animate--noDelay Animate--slideInLeft">${
+              document.querySelector(".markdown-body .content").innerHTML
+            }</div><div class="content Animated Animate--slideInRight">${article}</div>`;
+            firstH1 = document.querySelector(".markdown-body .content h1");
+            document.title = title
+              ? title
+              : firstH1
+              ? firstH1.textContent
+              : mdPath;
+          } catch (error) {
+            throw error;
+          }
+        }
+
+        // 加载 CSS
+        function loadCSS(url) {
+          return new Promise((resolve, reject) => {
+            //// 检查是否已加载
+            const existingLinks = document.querySelectorAll(
+              `link[href="${url}"]`
+            );
+            if (existingLinks.length > 0) {
+              return resolve(url);
+            }
+
+            //// 创建新的 link 元素
+            const link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.type = "text/css";
+            link.href = url;
+
+            //// 成功加载处理
+            link.onload = () => {
+              link.onload = null;
+              link.onerror = null;
+              resolve(url);
+            };
+
+            //// 加载失败处理
+            link.onerror = () => {
+              link.onerror = null;
+              link.onload = null;
+              document.head.removeChild(link);
+              reject(new Error(`无法加载CSS文件: ${url}`));
+            };
+
+            //// 添加到文档头部
+            document.head.appendChild(link);
+          });
+        }
+
+        // 等待动画结束
+        function waitForAnimationsEnd(parentElement, selector, animationNames) {
+          return new Promise((resolve) => {
+            var completedCount = 0;
+            const elements = parentElement.querySelectorAll(selector);
+            const totalElements = elements.length;
+
+            const handleAnimationEnd = function (event) {
+              if (
+                animationNames.includes(event.animationName) &&
+                Array.from(elements).includes(event.target)
+              ) {
+                completedCount++;
+                if (completedCount === totalElements) {
+                  parentElement.removeEventListener(
+                    "animationend",
+                    handleAnimationEnd
+                  );
+                  resolve();
+                }
+              }
+            };
+
+            parentElement.addEventListener("animationend", handleAnimationEnd);
+          });
+        }
+
+        // 处理错误
+        function handleError(mdPath, errorMessage) {
+          updateContent(
+            `<h1>加载失败</h1><p>加载文档<code>${mdPath}</code>时出错：<code>${errorMessage}</code>。您可以尝试<a class="refresh-btn" href="">重新加载</a>或<a class="back-btn">返回</a>。</p>`,
+            "加载失败"
+          );
+          waitForAnimationsEnd(
+            document.querySelector(".markdown-body"),
+            ".content, .old-content",
+            ["Animation-slideInRight", "Animation-slideInLeft"]
+          ).then(() => {
+            customPushState(
+              window.location.origin +
+                window.location.pathname +
+                (mdPath ? "?p=" + mdPath : "")
+            );
+          });
+          endLoad();
+        }
+
+        // 更新页面的 markdown 内容
+        /* 
         mdPath: 要加载的 markdown 文件路径，最好是带主机名的绝对路径（要用于 fetch()）
         response: fetch() 的返回值，用于防止二次访问
        */
-      const showMarkdown = async (mdPath, response = null) => {
-        if (mdPath === null) {
-          var path = null;
-          const currentPath = getPath();
-          // 如果存在 index.md 文件，则返回 index.md，否则返回 README.md
-          if (notExistIndexPage) {
-            path = currentPath + 'README.md';
-          } else if (notExistIndexPage === false) {
-            path = currentPath + 'index.md';
-          } else {
-            response = await fetch(getPath() + 'index.md');
-            if (response.ok && response.headers.get('content-type').startsWith('text/markdown')) {
-              notExistIndexPage = false;
-              path = currentPath + 'index.md';
+        const showMarkdown = async (mdPath, response = null) => {
+          if (mdPath === null) {
+            var path = null;
+            const currentPath = getPath();
+            // 如果存在 index.md 文件，则返回 index.md，否则返回 README.md
+            if (notExistIndexPage) {
+              path = currentPath + "README.md";
+            } else if (notExistIndexPage === false) {
+              path = currentPath + "index.md";
             } else {
-              response = null;
-              notExistIndexPage = true;
-              path = currentPath + 'README.md';
+              response = await fetch(getPath() + "index.md");
+              if (
+                response.ok &&
+                response.headers.get("content-type").startsWith("text/markdown")
+              ) {
+                notExistIndexPage = false;
+                path = currentPath + "index.md";
+              } else {
+                response = null;
+                notExistIndexPage = true;
+                path = currentPath + "README.md";
+              }
+            }
+          } else if (mdPath.endsWith("about.md")) {
+            // 特殊处理 about.md
+            response = await fetch(mdPath);
+            const about = getAbout();
+            if (
+              response.ok &&
+              response.headers.get("content-type").startsWith("text/markdown")
+            ) {
+              var r_text = await response.text();
+              const content = about + (await r_text.replace(/^# .*/m, ""));
+              response = {
+                ok: true,
+                status: 200,
+                statusText: "自生成。",
+                text: async () => {
+                  return content;
+                },
+              };
+            } else {
+              response = {
+                ok: true,
+                status: 200,
+                statusText: "自生成。",
+                text: async () => {
+                  return about + "*无更多详细信息*";
+                },
+              };
             }
           }
-        } else if (mdPath.endsWith('about.md')) {
-          // 特殊处理 about.md
-          response = await fetch(mdPath);
-          const about = getAbout();
-          if (response.ok && response.headers.get('content-type').startsWith('text/markdown')) {
-            var r_text = await response.text();
-            const content = about + await r_text.replace(/^# .*/m, '');
-            response = {
-              ok: true,
-              status: 200,
-              statusText: '自生成。',
-              text: async () => {
-                return content;
-              }
-            };
-          } else {
-            response = {
-              ok: true,
-              status: 200,
-              statusText: '自生成。',
-              text: async () => {
-                return about + '*无更多详细信息*';
-              }
-            };
+          try {
+            pValue = mdPath ? mdPath : path;
+            updateContent(await getMarkdown(mdPath ? mdPath : path, response));
+            document.querySelector("html").classList.add("loaded"); //// 防止缓存的页面被自定义 PJAX 中覆写的处理响应的函数捕获
+            waitForAnimationsEnd(
+              document.querySelector(".markdown-body"),
+              ".content, .old-content",
+              ["Animation-slideInRight", "Animation-slideInLeft"]
+            ).then(async () => {
+              await showMarkdownEnded();
+              customPushState(
+                window.location.origin +
+                  window.location.pathname +
+                  (mdPath ? "?p=" + mdPath : "")
+              );
+            });
+          } catch (error) {
+            handleError(mdPath ? mdPath : path, error);
           }
-        }
-        try {
-          pValue = mdPath ? mdPath : path;
-          updateContent(await getMarkdown((mdPath ? mdPath : path), response))
-          document.querySelector('html').classList.add('loaded');	//// 防止缓存的页面被自定义 PJAX 中覆写的处理响应的函数捕获
-          waitForAnimationsEnd(document.querySelector('.markdown-body'), '.content, .old-content', ['Animation-slideInRight', 'Animation-slideInLeft']).then(async () => {
-            await showMarkdownEnded();
-            customPushState(window.location.origin + window.location.pathname + (mdPath ? ('?p=' + mdPath) : ''));
-          });
-        } catch (error) {
-          handleError((mdPath ? mdPath : path), error)
-        }
-      }
+        };
 
-      // 读取并解析指定文件
-      const getMarkdown = async (mdPath, response = null) => {
-        //// 生成目录
-        function generateOutline(doc) {
-          const headings = Array.from(doc.querySelectorAll('h1, h2, h3, h4, h5, h6'));
-          if (headings.length === 0) return '<i>无目录</i>';
-          var outline = '<ul>';
-          var stack = [];
+        // 读取并解析指定文件
+        const getMarkdown = async (mdPath, response = null) => {
+          //// 生成目录
+          function generateOutline(doc) {
+            const headings = Array.from(
+              doc.querySelectorAll("h1, h2, h3, h4, h5, h6")
+            );
+            if (headings.length === 0) return "<i>无目录</i>";
+            var outline = "<ul>";
+            var stack = [];
 
-          headings.forEach(heading => {
-            const level = parseInt(heading.tagName.charAt(1));
-            const id = heading.textContent.toLowerCase()
-              .replace(/ /g, '-') //// 将空格替换为连字符
-              .replace(/[^\w\u4e00-\u9fa5-]/g, ''); //// 保留字母、数字、下划线、中文字符和连字符
+            headings.forEach((heading) => {
+              const level = parseInt(heading.tagName.charAt(1));
+              const id = heading.textContent
+                .toLowerCase()
+                .replace(/ /g, "-") //// 将空格替换为连字符
+                .replace(/[^\w\u4e00-\u9fa5-]/g, ""); //// 保留字母、数字、下划线、中文字符和连字符
 
-            //// 设置 id 属性以便链接跳转
-            heading.setAttribute('id', id);
+              //// 设置 id 属性以便链接跳转
+              heading.setAttribute("id", id);
 
-            while (stack.length > 0 && stack[stack.length - 1].level >= level) {
+              while (
+                stack.length > 0 &&
+                stack[stack.length - 1].level >= level
+              ) {
+                stack.pop();
+                outline += "</ul></li>";
+              }
+
+              if (stack.length === 0 || stack[stack.length - 1].level < level) {
+                outline += "<li><ul>";
+              } else {
+                outline += "</li><li>";
+              }
+
+              outline += `<a href="#${id}">${heading.textContent}</a>`;
+              stack.push({ level: level });
+            });
+
+            while (stack.length > 0) {
+              outline += "</ul></li>";
               stack.pop();
-              outline += '</ul></li>';
             }
 
-            if (stack.length === 0 || stack[stack.length - 1].level < level) {
-              outline += '<li><ul>';
-            } else {
-              outline += '</li><li>';
-            }
+            outline += "</ul>";
+            return outline;
+          }
 
-            outline += `<a href="#${id}">${heading.textContent}</a>`;
-            stack.push({ level: level });
+          if (!response) {
+            response = await fetch(mdPath);
+            if (
+              !response.ok &&
+              response.headers.get("content-type").startsWith("text/markdown")
+            ) {
+              throw new Error(
+                "请求失败：" +
+                  mdPath +
+                  "，" +
+                  response.headers.get("content-type") +
+                  "，" +
+                  response.status +
+                  "，" +
+                  response.statusText
+              );
+            }
+          }
+          var markdown_content = await response.text();
+          var content = marked.parse(markdown_content);
+          //// 因为是在本页面渲染一个其它页面的文档：
+          //// - 从 content 中获取所有 href 以 .md 结尾的 a 标签；
+          //// - 遍历这些 a 标签，如果 href 不是外链，则判断 href 是否为相对路径……最后转换为 ?p=<到该文件的绝对路径>
+          //// - 从 content 中获取所有 img 标签；
+          //// - 遍历这些 img 标签，如果 src 不是外链，则判断 src 是否为相对路径……最后转换为 <到该文件的绝对路径>
+
+          const linkParser = new DOMParser();
+          const linkDoc = linkParser.parseFromString(
+            `<div>${content}</div>`,
+            "text/html"
+          );
+
+          //// 处理所有以 .md 结尾的链接
+          const mdLinks = linkDoc.querySelectorAll('a[href$=".md"]');
+          mdLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            if (!isExternalLink(href) && isRelativePath(href)) {
+              var absolutePath = pValue
+                ? getDirectory(mdPath) + href
+                : getPath() + href;
+              absolutePath = new URL(absolutePath, "http://example.com")
+                .pathname;
+              link.setAttribute("href", `?p=${absolutePath}`);
+            }
           });
 
-          while (stack.length > 0) {
-            outline += '</ul></li>';
-            stack.pop();
+          //// 处理所有图片
+          const images = linkDoc.querySelectorAll("img");
+          images.forEach((img) => {
+            const src = img.getAttribute("src");
+            img.setAttribute("loading", "lazy");
+            if (src && !isExternalLink(src) && isRelativePath(src)) {
+              var absolutePath = pValue
+                ? getDirectory(mdPath) + src
+                : getPath() + src;
+              absolutePath = new URL(absolutePath, "http://example.com")
+                .pathname;
+              img.setAttribute("src", absolutePath);
+            }
+          });
+
+          //// 更新处理后的 markdown 内容
+          content = linkDoc.body.innerHTML.replace(/^<div>|<\/div>$/g, "");
+
+          //// 空文件
+          if (content === "") {
+            content = "<i>空文件</i>";
           }
 
-          outline += '</ul>';
-          return outline;
+          //// 添加目录
+          content = `<details class="outline"><summary>${decodeURIComponent(
+            mdPath
+          )}</summary></details><hr>${content}`;
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(content, "text/html");
+
+          const outline = generateOutline(doc);
+          doc.querySelector(".outline").innerHTML += outline;
+
+          return doc.body.innerHTML;
+        };
+
+        // 初始化自定义 PJAX 响应
+        function initCustomPJAXResponse() {
+          //// 覆写 PJAX 处理响应的函数，在内容插入页面之前实现 markdown 的渲染
+          PJAX._handleResponse = PJAX.handleResponse;
+          PJAX.handleResponse = async function (
+            responseText,
+            request,
+            href,
+            options
+          ) {
+            if (
+              /^<!doctype html>[\s\S]*?<html>[\s\S]*?<markdown-html/i.test(
+                request.responseText
+              )
+            ) {
+              await showMarkdown(await decodeMDPath(href));
+            } else {
+              PJAX._handleResponse(responseText, request, href, options);
+            }
+          };
         }
 
-        if (!response) {
-          response = await fetch(mdPath);
-          if (!response.ok && response.headers.get('content-type').startsWith('text/markdown')) {
-            throw new Error('请求失败：' + mdPath + '，' + response.headers.get('content-type') + '，' + response.status + '，' + response.statusText);
+        // 初始化自定义 PJAX 事件监听器
+        function initCustomPJAXEventListener() {
+          // 监听自定义链接的点击事件
+          if (existPushState) {
+            document
+              .querySelector(".markdown-body")
+              .addEventListener("click", async function (event) {
+                const link = event.target.closest('a[href$=".md"]');
+                if (link) {
+                  try {
+                    event.preventDefault();
+                    startLoad();
+                    await showMarkdown(await decodeMDPath(link.href));
+                  } catch (e) {
+                    console.error("自定义 PJAX 出错：" + e);
+                  }
+                }
+              });
           }
         }
-        var markdown_content = await response.text();
-        var content = marked.parse(markdown_content);
-        //// 因为是在本页面渲染一个其它页面的文档：
-        //// - 从 content 中获取所有 href 以 .md 结尾的 a 标签；
-        //// - 遍历这些 a 标签，如果 href 不是外链，则判断 href 是否为相对路径……最后转换为 ?p=<到该文件的绝对路径>
-        //// - 从 content 中获取所有 img 标签；
-        //// - 遍历这些 img 标签，如果 src 不是外链，则判断 src 是否为相对路径……最后转换为 <到该文件的绝对路径>
 
-        const linkParser = new DOMParser();
-        const linkDoc = linkParser.parseFromString(`<div>${content}</div>`, 'text/html');
-
-        //// 处理所有以 .md 结尾的链接
-        const mdLinks = linkDoc.querySelectorAll('a[href$=".md"]');
-        mdLinks.forEach(link => {
-          const href = link.getAttribute('href');
-          if (!isExternalLink(href) && isRelativePath(href)) {
-            var absolutePath = pValue ? getDirectory(mdPath) + href : getPath() + href;
-            absolutePath = new URL(absolutePath, 'http://example.com').pathname;
-            link.setAttribute('href', `?p=${absolutePath}`);
+        // 自定义推送状态
+        function customPushState(url = window.location.href) {
+          if (existPushState) {
+            if (level > lastLevel) {
+              history.pushState(
+                { url: url, title: document.title, uid: level },
+                null,
+                url
+              );
+              lastLevel = level++;
+            } else {
+              lastLevel = level - 1;
+            }
           }
+        }
+
+        // 初始化内容
+        const initContent = async () => {
+          try {
+            await showMarkdown(await getPValue());
+          } catch (error) {
+            handleError(await getPValue(), "初始化内容时出错：" + error);
+          }
+        };
+
+        // 初始化返回首页按钮
+        function initHomeBtn() {
+          const homeBtn = document.querySelector(".to-home");
+          homeBtn.href = window.location.pathname;
+        }
+
+        // 初始化返回首页按钮
+        function initAboutBtn() {
+          const aboutBtn = document.querySelector(".about-btn");
+          aboutBtn.href = `?p=${getDirectory(
+            window.location.pathname
+          )}about.md`;
+        }
+
+        // 初始化
+        function initialize() {
+          startLoad(); //// 开始加载动画
+          initDarkmode(); //// 初始化深色模式
+          initHomeBtn(); //// 初始化返回首页按钮
+          initAboutBtn(); //// 初始化关于按钮
+          initContent(); //// 初始化内容
+          initTranslate(); //// 初始化页面翻译
+          initPJAX(); //// 初始化 PJAX
+          initCustomPJAXResponse(); //// 初始化自定义 PJAX 响应
+          initCustomPJAXEventListener(); //// 初始化自定义 PJAX 事件监听器
+          loadCSS(
+            "https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css"
+          ); //// 加载字体 CSS
+          endLoad(); //// 结束加载动画
+        }
+
+        // 触发器
+        //// 网页加载完毕后触发初始化
+        window.addEventListener("DOMContentLoaded", () => initialize());
+        //// 翻译执行完成后触发
+        translate.listener.renderTaskFinish = function (_task) {
+          endLoad();
+        };
+        //// PJAX 开始时执行的函数
+        document.addEventListener("pjax:send", function () {
+          startLoad();
         });
-
-        //// 处理所有图片
-        const images = linkDoc.querySelectorAll('img');
-        images.forEach(img => {
-          const src = img.getAttribute('src');
-          img.setAttribute('loading', 'lazy');
-          if (src && !isExternalLink(src) && isRelativePath(src)) {
-            var absolutePath = pValue ? getDirectory(mdPath) + src : getPath() + src;
-            absolutePath = new URL(absolutePath, 'http://example.com').pathname;
-            img.setAttribute('src', absolutePath);
-          }
+        //// 监听 PJAX 完成后，重新加载
+        document.addEventListener("pjax:complete", async function () {
+          await showMarkdown(await getPValue());
+          initCustomPJAXEventListener(); //// 重新初始化自定义 PJAX 事件监听器
         });
-
-        //// 更新处理后的 markdown 内容
-        content = linkDoc.body.innerHTML.replace(/^<div>|<\/div>$/g, '');
-
-        //// 空文件
-        if (content === '') {
-          content = '<i>空文件</i>';
-        }
-
-        //// 添加目录
-        content = `<details class="outline"><summary>${decodeURIComponent(mdPath)}</summary></details><hr>${content}`;
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(content, 'text/html');
-
-        const outline = generateOutline(doc);
-        doc.querySelector('.outline').innerHTML += outline;
-
-        return doc.body.innerHTML;
-      };
-
-      // 初始化自定义 PJAX 响应
-      function initCustomPJAXResponse() {
-        //// 覆写 PJAX 处理响应的函数，在内容插入页面之前实现 markdown 的渲染
-        PJAX._handleResponse = PJAX.handleResponse;
-        PJAX.handleResponse = async function (responseText, request, href, options) {
-          if (request.responseText.startsWith('<!doctype html><html><markdown-html') || request.responseText.startsWith(`<!doctype html>
-
-<html>
-<markdown-html`)) {
-            await showMarkdown(await decodeMDPath(href));
-          } else {
-            PJAX._handleResponse(responseText, request, href, options);
+        //// 监听 animationend 事件
+        document.addEventListener(
+          "animationend",
+          function handleAnimationEnd(event) {
+            if (event.animationName === "Animation-slideInRight") {
+              const element = document.querySelector(".markdown-body .content");
+              element.classList.remove("Animated");
+              element.classList.remove("Animate--slideInRight");
+            } else if (event.animationName === "Animation-slideInLeft") {
+              document.querySelector(".markdown-body .old-content").remove();
+            }
           }
-        }
-      }
-
-      // 初始化自定义 PJAX 事件监听器
-      function initCustomPJAXEventListener() {
-        // 监听自定义链接的点击事件
-        if (existPushState) {
-          document.querySelector('.markdown-body').addEventListener('click', async function (event) {
-            const link = event.target.closest('a[href$=".md"]');
-            if (link) {
-              try {
-                event.preventDefault();
-                startLoad();
-                await showMarkdown(await decodeMDPath(link.href));
-              } catch (e) {
-                console.error('自定义 PJAX 出错：' + e);
+        );
+        //// 点击事件委托
+        document.addEventListener("click", function (event) {
+          if (event.target.closest(".back-btn")) {
+            window.history.back();
+          } else if (event.target.closest(".refresh-btn")) {
+            window.location.reload();
+          } else if (event.target.closest(".dark-btn")) {
+            darkmode.toggle();
+          } else if (event.target.closest(".translate-switch")) {
+            translate.changeLanguage(translate.language.getLocal());
+            /*  跳转。禁用原因是有些带有特殊字符的链接会出错或无法跳转
+          } else if (event.target.closest('.content a[href^="#"]')) {
+            // 目录平滑移动
+            const href = event.target.getAttribute('href');
+            if (href !== '#') {
+              event.preventDefault();
+              const targetElement = document.querySelector(href);
+              if (targetElement) {
+                targetElement.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              } else {
+                console.error(`ID 为 ${targetId} 的元素不存在。`);
               }
             }
-          });
-        }
-      }
-
-      // 自定义推送状态
-      function customPushState(url = window.location.href) {
-        if (existPushState) {
-          if (level > lastLevel) {
-            history.pushState({ url: url, title: document.title, uid: level }, null, url);
-            lastLevel = level++;
-          } else {
-            lastLevel = level - 1;
-          }
-        }
-      }
-
-      // 初始化内容
-      const initContent = async () => {
-        try {
-          await showMarkdown(await getPValue());
-        } catch (error) {
-          handleError(await getPValue(), '初始化内容时出错：' + error);
-        }
-      };
-
-      // 初始化返回首页按钮
-      function initHomeBtn() {
-        const homeBtn = document.querySelector('.to-home');
-        homeBtn.href = window.location.pathname;
-      }
-
-      // 初始化返回首页按钮
-      function initAboutBtn() {
-        const aboutBtn = document.querySelector('.about-btn');
-        aboutBtn.href = `?p=${getDirectory(window.location.pathname)}about.md`;
-      }
-
-      // 初始化
-      function initialize() {
-        startLoad();	//// 开始加载动画
-        initDarkmode();	//// 初始化深色模式
-        initHomeBtn();	//// 初始化返回首页按钮
-        initAboutBtn();	//// 初始化关于按钮
-        initContent();	//// 初始化内容
-        initTranslate();	//// 初始化页面翻译
-        initPJAX();	//// 初始化 PJAX
-        initCustomPJAXResponse();	//// 初始化自定义 PJAX 响应
-        initCustomPJAXEventListener();	//// 初始化自定义 PJAX 事件监听器
-        loadCSS('https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css'); //// 加载字体 CSS
-        endLoad(); //// 结束加载动画
-      }
-
-      // 触发器
-      //// 网页加载完毕后触发初始化
-      window.addEventListener('DOMContentLoaded', () => initialize());
-      //// 翻译执行完成后触发
-      translate.listener.renderTaskFinish = function (_task) {
-        endLoad();
-      }
-      //// PJAX 开始时执行的函数
-      document.addEventListener('pjax:send', function () {
-        startLoad();
-      });
-      //// 监听 PJAX 完成后，重新加载
-      document.addEventListener('pjax:complete', async function () {
-        await showMarkdown(await getPValue());
-        initCustomPJAXEventListener();	//// 重新初始化自定义 PJAX 事件监听器
-      });
-      //// 监听 animationend 事件
-      document.addEventListener('animationend', function handleAnimationEnd(event) {
-        if (event.animationName === 'Animation-slideInRight') {
-          const element = document.querySelector('.markdown-body .content');
-          element.classList.remove('Animated');
-          element.classList.remove('Animate--slideInRight');
-        } else if (event.animationName === 'Animation-slideInLeft') {
-          document.querySelector('.markdown-body .old-content').remove();
-        }
-      });
-      //// 点击事件委托
-      document.addEventListener('click', function (event) {
-        if (event.target.closest('.back-btn')) {
-          window.history.back();
-        } else if (event.target.closest('.refresh-btn')) {
-          window.location.reload();
-        } else if (event.target.closest('.dark-btn')) {
-          darkmode.toggle();
-        } else if (event.target.closest('.translate-switch')) {
-          translate.changeLanguage(translate.language.getLocal());
-          /*  跳转。禁用原因是有些带有特殊字符的链接会出错或无法跳转
-        } else if (event.target.closest('.content a[href^="#"]')) {
-          // 目录平滑移动
-          const href = event.target.getAttribute('href');
-          if (href !== '#') {
-            event.preventDefault();
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-              targetElement.scrollIntoView({
-                behavior: 'smooth'
-              });
+            */
+          } else if (event.target.closest('.content a[href]:not([href=""])')) {
+            const href = event.target.getAttribute("href");
+            if (isExternalLink(href)) {
+              window.open(href, "_blank");
+              event.preventDefault();
+            }
+          } else if (event.target.closest(".content img, .content svg")) {
+            const url =
+              event.target.getAttribute("src") ||
+              event.target.getAttribute("xlink:href");
+            if (url) {
+              window.open(url, "_blank");
+              event.preventDefault();
             } else {
-              console.error(`ID 为 ${targetId} 的元素不存在。`);
+              const newWindow = window.open("", "_blank");
+              newWindow.document.write(imgOrSvg.outerHTML);
+              newWindow.document.close();
+              event.preventDefault();
             }
           }
-           */
-        } else if (event.target.closest('.content a[href]:not([href=""])')) {
-          const href = event.target.getAttribute('href');
-          if (isExternalLink(href)) {
-            window.open(href, '_blank');
-            event.preventDefault();
-          }
-        } else if (event.target.closest('.content img, .content svg')) {
-          const url = event.target.getAttribute('src') || event.target.getAttribute('xlink:href');
-          if (url) {
-            window.open(url, '_blank');
-            event.preventDefault();
-          } else {
-            const newWindow = window.open('', '_blank');
-            newWindow.document.write(imgOrSvg.outerHTML);
-            newWindow.document.close();
-            event.preventDefault();
-          }
-        }
-      });
-      //// 文档内容加载完毕时触发
-      async function showMarkdownEnded() {
-        refreshTranslate();
-        infoTranslate();	//// 检查并提示翻译
-        await mermaid.init({ noteMargin: 10 }, '.language-mermaid');	//// 初始化 mermaid
-        translate.execute();	//// 手动触发翻译，但是理论上 translate-js 会监听页面变化
-        hljs.highlightAll();  //// 触发代码块语法高亮
-        endLoad();
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
         });
-      }
-      //// 浏览器返回时触发
-      window.onpopstate = function (event) {
-        if (level > 1) {
-          --level;
+        //// 文档内容加载完毕时触发
+        async function showMarkdownEnded() {
+          refreshTranslate();
+          infoTranslate(); //// 检查并提示翻译
+          await mermaid.init({ noteMargin: 10 }, ".language-mermaid"); //// 初始化 mermaid
+          translate.execute(); //// 手动触发翻译，但是理论上 translate-js 会监听页面变化
+          hljs.highlightAll(); //// 触发代码块语法高亮
+          endLoad();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
         }
-      };
-    })();
-  </script>
-  <title>加载中</title>
-  <style>
-    /* 全局 */
-    :root,
-    html,
-    body,
-    button,
-    input,
-    select,
-    textarea,
-    code,
-    pre {
-      font-family: 'Sarasa Term SC Nerd', 'Maple Mono CN', Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', Arial, sans-serif;
-      text-decoration: none;
-    }
-
-    :root,
-    html,
-    body {
-      background-color: #e6e6e6;
-    }
-
-    ::selection {
-      background-color: #DCEDC8;
-    }
-
-    body {
-      margin: 0;
-    }
-
-    a {
-      color: #66BB6A;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #2E7D32;
-    }
-
-    /* 背景 */
-    .background {
-      position: fixed;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-      background-color: #e6e6e6;
-    }
-
-    /* 导航栏 */
-    nav {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: min-content;
-      background-color: #616161;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1;
-    }
-
-    nav a {
-      color: #FAFAFA;
-      padding: .3rem;
-      transition:
-        color .2s,
-        background-color .2s;
-    }
-
-    nav a:hover {
-      color: #FFF;
-      background-color: #212121;
-    }
-
-    /* 动画 */
-    .Animated {
-      animation-fill-mode: both;
-      animation-duration: 1s;
-    }
-
-    .Animated-remove {
-      position: absolute;
-    }
-
-    .Animated--reverse {
-      animation-direction: reverse
-    }
-
-    .Animate--fast {
-      animation-duration: .5s
-    }
-
-    .Animate--noDelay {
-      animation-delay: 0s !important;
-    }
-
-    .Animate--slideInRight {
-      animation-name: Animation-slideInRight
-    }
-
-    @keyframes Animation-slideInRight {
-      0% {
-        transform: translateX(200%);
+        //// 浏览器返回时触发
+        window.onpopstate = function (event) {
+          if (level > 1) {
+            --level;
+          }
+        };
+      })();
+    </script>
+    <title>加载中</title>
+    <style>
+      /* 全局 */
+      :root,
+      html,
+      body,
+      button,
+      input,
+      select,
+      textarea,
+      code,
+      pre {
+        font-family: "Sarasa Term SC Nerd", "Maple Mono CN", Ubuntu, Roboto,
+          "Open Sans", "Microsoft YaHei", Arial, sans-serif;
+        text-decoration: none;
       }
 
-      100% {
-        transform: translateX(0);
-      }
-    }
-
-    .Animate--slideInLeft {
-      animation-name: Animation-slideInLeft
-    }
-
-    @keyframes Animation-slideInLeft {
-      0% {
-        transform: translateX(-100%);
+      :root,
+      html,
+      body {
+        background-color: #e6e6e6;
       }
 
-      100% {
-        transform: translateX(0);
+      ::selection {
+        background-color: #dcedc8;
       }
-    }
 
-    /* 主要内容 */
-    .markdown-body {
-      position: relative;
-      margin: 3rem auto;
-      width: 100%;
-      max-width: 950px;
-      min-height: 300px;
-      background-color: #FAFAFA;
-      color: #212121;
-      box-sizing: border-box;
-      overflow-x: hidden;
-      box-shadow: 0 2px 6px rgba(100, 100, 100, .3);
-    }
+      body {
+        margin: 0;
+      }
 
-    .markdown-body .content,
-    .markdown-body .old-content {
-      margin: 2rem;
-    }
+      a {
+        color: #66bb6a;
+        cursor: pointer;
+        text-decoration: none;
+      }
 
-    .markdown-body img,
-    .markdown-body video,
-    .markdown-body iframe,
-    .markdown-body object,
-    .markdown-body embed,
-    .markdown-body svg,
-    .markdown-body canvas,
-    .markdown-body audio {
-      max-width: 100%;
-      background-color: rgba(0, 0, 0, 0.05);
-    }
+      a:hover {
+        color: #2e7d32;
+      }
 
-    /* Markdown 样式 */
-    .markdown-body a {
-      transition:
-        color .2s,
-        background-color .2s;
-    }
+      /* 背景 */
+      .background {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        background-color: #e6e6e6;
+      }
 
-    .markdown-body a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
+      /* 导航栏 */
+      nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min-content;
+        background-color: #616161;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+      }
 
-    .markdown-body ul,
-    .markdown-body ol {
-      padding-left: 2rem;
-    }
+      nav a {
+        color: #fafafa;
+        padding: 0.3rem;
+        transition: color 0.2s, background-color 0.2s;
+      }
 
-    .markdown-body pre {
-      background-color: rgba(0, 0, 0, 0.05);
-      padding: .4rem;
-      border-radius: .1rem;
-      overflow-y: scroll;
-    }
+      nav a:hover {
+        color: #fff;
+        background-color: #212121;
+      }
 
-    .markdown-body code {
-      font-family: "cousine nerd font mono", monospace;
-      background-color: rgba(0, 0, 0, 0.05);
-      font-size: small;
-      padding: .2rem;
-      border-radius: .1rem;
-    }
+      /* 动画 */
+      .Animated {
+        animation-fill-mode: both;
+        animation-duration: 1s;
+      }
 
-    .markdown-body pre code {
-      background-color: unset;
-      font-size: unset;
-      padding: unset;
-      border-radius: unset;
-    }
+      .Animated-remove {
+        position: absolute;
+      }
 
-    .markdown-body blockquote {
-      background-color: rgba(0, 0, 0, 0.05);
-      font-size: small;
-      padding: .4rem;
-      margin: .5rem 2rem;
-      border-left: 5px solid rgba(0, 0, 0, 0.1);
-    }
+      .Animated--reverse {
+        animation-direction: reverse;
+      }
 
-    .markdown-body details {
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: .1rem;
-    }
+      .Animate--fast {
+        animation-duration: 0.5s;
+      }
 
-    .markdown-body summary {
-      font-size: small;
-      cursor: pointer;
-      background-color: rgba(0, 0, 0, 0.05);
-      padding: .4rem;
-      font-weight: bold;
-    }
+      .Animate--noDelay {
+        animation-delay: 0s !important;
+      }
 
-    .markdown-body details a {
-      margin-left: -2rem;
-    }
+      .Animate--slideInRight {
+        animation-name: Animation-slideInRight;
+      }
 
-    .markdown-body table {
-      border-spacing: 0;
-      border-radius: .1rem;
-      width: 100%;
-      border-collapse: separate;
-      border: .1rem solid rgba(0, 0, 0, 0.05);
-    }
+      @keyframes Animation-slideInRight {
+        0% {
+          transform: translateX(200%);
+        }
 
-    .markdown-body table>* {
-      overflow-y: scroll;
-    }
+        100% {
+          transform: translateX(0);
+        }
+      }
 
-    .markdown-body table td,
-    .markdown-body table th {
-      border-right: .1rem solid rgba(0, 0, 0, 0.05);
-      border-top: .1rem solid rgba(0, 0, 0, 0.05);
-      padding: .4rem;
-    }
+      .Animate--slideInLeft {
+        animation-name: Animation-slideInLeft;
+      }
 
-    .markdown-body table td:last-child,
-    .markdown-body th:last-child {
-      border-right-color: transparent;
-    }
+      @keyframes Animation-slideInLeft {
+        0% {
+          transform: translateX(-100%);
+        }
 
-    .markdown-body table thead tr:first-child>* {
-      border-top: .1rem solid transparent;
-    }
+        100% {
+          transform: translateX(0);
+        }
+      }
 
-    /* 加载进度条 */
-    .loading-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 2;
-      opacity: 0;
-      transition: opacity .4s linear;
+      /* 主要内容 */
+      .markdown-body {
+        position: relative;
+        margin: 3rem auto;
+        width: 100%;
+        max-width: 950px;
+        min-height: 300px;
+        background-color: #fafafa;
+        color: #212121;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+      }
 
-      .progress {
+      .markdown-body .content,
+      .markdown-body .old-content {
+        margin: 2rem;
+      }
+
+      .markdown-body img,
+      .markdown-body video,
+      .markdown-body iframe,
+      .markdown-body object,
+      .markdown-body embed,
+      .markdown-body svg,
+      .markdown-body canvas,
+      .markdown-body audio {
+        max-width: 100%;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      /* Markdown 样式 */
+      .markdown-body a {
+        transition: color 0.2s, background-color 0.2s;
+      }
+
+      .markdown-body a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2rem;
+      }
+
+      .markdown-body pre {
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0.4rem;
+        border-radius: 0.1rem;
+        overflow-y: scroll;
+      }
+
+      .markdown-body code {
+        font-family: "cousine nerd font mono", monospace;
+        background-color: rgba(0, 0, 0, 0.05);
+        font-size: small;
+        padding: 0.2rem;
+        border-radius: 0.1rem;
+      }
+
+      .markdown-body pre code {
+        background-color: unset;
+        font-size: unset;
+        padding: unset;
+        border-radius: unset;
+      }
+
+      .markdown-body blockquote {
+        background-color: rgba(0, 0, 0, 0.05);
+        font-size: small;
+        padding: 0.4rem;
+        margin: 0.5rem 2rem;
+        border-left: 5px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .markdown-body details {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.1rem;
+      }
+
+      .markdown-body summary {
+        font-size: small;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0.4rem;
+        font-weight: bold;
+      }
+
+      .markdown-body details a {
+        margin-left: -2rem;
+      }
+
+      .markdown-body table {
+        border-spacing: 0;
+        border-radius: 0.1rem;
+        width: 100%;
+        border-collapse: separate;
+        border: 0.1rem solid rgba(0, 0, 0, 0.05);
+      }
+
+      .markdown-body table > * {
+        overflow-y: scroll;
+      }
+
+      .markdown-body table td,
+      .markdown-body table th {
+        border-right: 0.1rem solid rgba(0, 0, 0, 0.05);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.05);
+        padding: 0.4rem;
+      }
+
+      .markdown-body table td:last-child,
+      .markdown-body th:last-child {
+        border-right-color: transparent;
+      }
+
+      .markdown-body table thead tr:first-child > * {
+        border-top: 0.1rem solid transparent;
+      }
+
+      /* 加载进度条 */
+      .loading-bar {
         position: fixed;
         top: 0;
         left: 0;
-        width: 0;
-        height: 4px;
-        background-color: #2E7D32;
-        box-shadow: 0 0 10px rgba(102, 187, 106, .7);
-      }
-
-      &.loading {
-        opacity: 1;
-        transition: none;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.4s linear;
 
         .progress {
-          transition: width .4s ease;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 4px;
+          background-color: #2e7d32;
+          box-shadow: 0 0 10px rgba(102, 187, 106, 0.7);
+        }
+
+        &.loading {
+          opacity: 1;
+          transition: none;
+
+          .progress {
+            transition: width 0.4s ease;
+          }
         }
       }
-    }
 
-    /* 翻译按钮相关 */
-    .translateSelectLanguage {
-      background-color: #616161;
-      color: inherit;
-      z-index: 3;
-      width: 17%;
-      height: 100%;
-      opacity: 0;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 50%;
-    }
-
-    /* 深色模式相关 */
-    .darkmode--activated .markdown-body img,
-    .darkmode--activated .markdown-body svg {
-      isolation: isolate;
-      mix-blend-mode: difference
-    }
-
-    .darkmode-layer,
-    .darkmode-toggle {
-      z-index: 3
-    }
-
-    /* 小屏响应式优化 */
-    @media only screen and (max-width: 950px) {
-
-      html,
-      body,
-      .markdown-body {
+      /* 翻译按钮相关 */
+      .translateSelectLanguage {
+        background-color: #616161;
+        color: inherit;
+        z-index: 3;
+        width: 17%;
         height: 100%;
-      }
-
-      .markdown-body {
-        overflow-y: scroll;
-        min-width: 256px;
+        opacity: 0;
+        cursor: pointer;
+        position: absolute;
         top: 0;
-        margin: 0 0;
+        left: 50%;
       }
-    }
-  </style>
-  <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/highlight.js/11.4.0/styles/default.min.css"
-    type="text/css" rel="stylesheet" />
-</head>
 
-<body>
-  <!-- 导航栏 -->
-  <nav>
-    <a title="返回" class="back-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1" />
-      </svg>
-    </a>
-    <a title="刷新" class="refresh-btn" href="">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-refresh">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
-        <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
-      </svg>
-    </a>
-    <a title="主页" class="to-home">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-home">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-      </svg>
-    </a>
-    <a title="更改语言" id="translate">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-language">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M4 5h7" />
-        <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-        <path d="M5 9c0 2.144 2.952 3.908 6.7 4" />
-        <path d="M12 20l4 -9l4 9" />
-        <path d="M19.1 18h-6.2" />
-      </svg>
-    </a>
-    <a title="切换显示模式" class="dark-btn" href="javascript:;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-brightness">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-        <path d="M12 3l0 18" />
-        <path d="M12 9l4.65 -4.65" />
-        <path d="M12 14.3l7.37 -7.37" />
-        <path d="M12 19.6l8.85 -8.85" />
-      </svg>
-    </a>
-    <a title="关于" class="about-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-        <path d="M12 9h.01" />
-        <path d="M11 12h1v4h1" />
-      </svg>
-    </a>
-  </nav>
+      /* 深色模式相关 */
+      .darkmode--activated .markdown-body img,
+      .darkmode--activated .markdown-body svg {
+        isolation: isolate;
+        mix-blend-mode: difference;
+      }
 
-  <!-- 内容主体 -->
-  <div class="markdown-body">
-    <div class="content">
-      <h1>加载中……</h1>
-      <p>请稍等。</p>
+      .darkmode-layer,
+      .darkmode-toggle {
+        z-index: 3;
+      }
+
+      /* 小屏响应式优化 */
+      @media only screen and (max-width: 950px) {
+        html,
+        body,
+        .markdown-body {
+          height: 100%;
+        }
+
+        .markdown-body {
+          overflow-y: scroll;
+          min-width: 256px;
+          top: 0;
+          margin: 0 0;
+        }
+      }
+    </style>
+    <link
+      href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/highlight.js/11.4.0/styles/default.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- 导航栏 -->
+    <nav>
+      <a title="返回" class="back-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1" />
+        </svg>
+      </a>
+      <a title="刷新" class="refresh-btn" href="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-refresh"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+          <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+        </svg>
+      </a>
+      <a title="主页" class="to-home">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-home"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+          <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+          <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+        </svg>
+      </a>
+      <a title="更改语言" id="translate">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-language"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M4 5h7" />
+          <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+          <path d="M5 9c0 2.144 2.952 3.908 6.7 4" />
+          <path d="M12 20l4 -9l4 9" />
+          <path d="M19.1 18h-6.2" />
+        </svg>
+      </a>
+      <a title="切换显示模式" class="dark-btn" href="javascript:;">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-brightness"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+          <path d="M12 3l0 18" />
+          <path d="M12 9l4.65 -4.65" />
+          <path d="M12 14.3l7.37 -7.37" />
+          <path d="M12 19.6l8.85 -8.85" />
+        </svg>
+      </a>
+      <a title="关于" class="about-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+          <path d="M12 9h.01" />
+          <path d="M11 12h1v4h1" />
+        </svg>
+      </a>
+    </nav>
+
+    <!-- 内容主体 -->
+    <div class="markdown-body">
+      <div class="content">
+        <h1>加载中……</h1>
+        <p>请稍等。</p>
+      </div>
     </div>
-  </div>
 
-  <!-- 加载动画 -->
-  <div class="loading-bar">
-    <div class="progress"></div>
-  </div>
+    <!-- 加载动画 -->
+    <div class="loading-bar">
+      <div class="progress"></div>
+    </div>
 
-  <div class="background"></div>
-  <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/instant.page/5.1.0/instantpage.min.js"
-    type="text/javascript"></script>
-</body>
-
+    <div class="background"></div>
+    <script
+      src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/instant.page/5.1.0/instantpage.min.js"
+      type="text/javascript"
+    ></script>
+  </body>
 </html>
