@@ -2,7 +2,7 @@
 
 <html>
   <markdown-html
-    version="1.18.8"
+    version="1.18.9"
     author="PJ568"
     repo="https://github.com/PJ-568/markdown.html"
     license="CC BY-SA 4.0 International"
@@ -611,8 +611,8 @@
             "text/html"
           );
 
-          //// 处理所有以 .md 结尾的链接
-          const mdLinks = linkDoc.querySelectorAll('a[href$=".md"]');
+          //// 处理所有 a 链接
+          const mdLinks = linkDoc.querySelectorAll('a[href]:not([href=""])');
           mdLinks.forEach((link) => {
             const href = link.getAttribute("href");
             if (!isExternalLink(href) && isRelativePath(href)) {
@@ -621,7 +621,11 @@
                 : getPath() + href;
               absolutePath = new URL(absolutePath, "http://example.com")
                 .pathname;
-              link.setAttribute("href", `?p=${absolutePath}`);
+              if (absolutePath.endsWith(".md")) {
+                link.setAttribute("href", `?p=${absolutePath}`);
+              } else {
+                link.setAttribute("href", absolutePath);
+              }
             }
           });
 
