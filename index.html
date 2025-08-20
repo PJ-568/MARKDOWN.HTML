@@ -2,7 +2,7 @@
 
 <html>
   <markdown-html
-    version="1.19.1"
+    version="1.20.0"
     author="PJ568"
     repo="https://github.com/PJ-568/markdown.html"
     license="CC BY-SA 4.0 International"
@@ -25,15 +25,15 @@
     <script
       defer
       src="https://lib.baomitu.com/marked/4.0.2/marked.min.js"
-      type="text/javascript"
+      type="application/javascript"
     ></script>
     <script
       src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"
-      type="text/javascript"
+      type="application/javascript"
     ></script>
     <script
       src="https://lib.baomitu.com/translate.js/3.17.0/translate.js"
-      type="text/javascript"
+      type="application/javascript"
     ></script>
     <script
       src="https://lib.baomitu.com/Darkmode.js/1.5.7/darkmode-js.min.js"
@@ -758,9 +758,9 @@
           initPJAX(); //// 初始化 PJAX
           initCustomPJAXResponse(); //// 初始化自定义 PJAX 响应
           initCustomPJAXEventListener(); //// 初始化自定义 PJAX 事件监听器
-          loadCSS(
-            "https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css"
-          ); //// 加载字体 CSS
+          // loadCSS(
+          //   "https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css"
+          // ); //// 加载字体 CSS，会造成渲染阻塞，暂时禁用
           endLoad(); //// 结束加载动画
         }
 
@@ -1164,10 +1164,22 @@
 
       /* 小屏响应式优化 */
       @media only screen and (max-width: 950px) {
+        :root,
+        html,
+        body {
+          background-color: #616161;
+        }
+
+        :root,
         html,
         body,
         .markdown-body {
           height: 100%;
+        }
+
+        nav {
+          position: relative;
+          margin-left: auto;
         }
 
         .markdown-body {
