@@ -16,11 +16,11 @@
 
 ## 使用方法
 
-| 文件名 | 说明 |
-| :----- | :--- |
-| [index.html](index.html) | 默认 HTML 入口文件，使用 CDN 引入依赖。 |
-| [index.min.html](index.min.html) | 压缩后的 HTML 入口文件，使用 CDN 引入依赖。 |
-| [index.allinone.html](index.allinone.html) | 全合一 HTML 入口文件，默认包含所有可被脚本下载的依赖。 |
+| 文件名                                             | 说明                                                           |
+| :------------------------------------------------- | :------------------------------------------------------------- |
+| [index.html](index.html)                           | 默认 HTML 入口文件，使用 CDN 引入依赖。                        |
+| [index.min.html](index.min.html)                   | 压缩后的 HTML 入口文件，使用 CDN 引入依赖。                    |
+| [index.allinone.html](index.allinone.html)         | 全合一 HTML 入口文件，默认包含所有可被脚本下载的依赖。         |
 | [index.allinone.min.html](index.allinone.min.html) | 压缩后的全合一 HTML 入口文件，默认包含所有可被脚本下载的依赖。 |
 
 ### 手动部署
@@ -36,10 +36,10 @@
 - name: Deploy markdown.html
   uses: PJ-568/MARKDOWN.HTML@v<version>
   with:
-    target-dir: '.'
-    file-name: 'index.html'
-    use-minified: 'true'
-    use-all-in-one: 'false'
+    target-dir: "."
+    file-name: "index.html"
+    use-minified: "true"
+    use-all-in-one: "false"
 ```
 
 ## 其他说明
@@ -61,25 +61,25 @@
 
 #### 项目
 
-|名称|协议|地址|
-|:-:|:--|:--|
-|tabler-icons|[MIT License](//mit-license.org)|[Github](https://github.com/tabler/tabler-icons)、[Website](https://tabler.io/icons)|
-|highlightjs/highlight.js|[BSD-3-Clause license](https://github.com/highlightjs/highlight.js/raw/refs/heads/main/LICENSE)|[Github](https://github.com/highlightjs/highlight.js)、[Website](https://highlightjs.org)|
-|markedjs/marked|[marked License](https://github.com/markedjs/marked/blob/master/LICENSE.md)|[Github](https://github.com/markedjs/marked)、[Website](https://marked.js.org)|
-|mermaidjs/mermaid|[MIT License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)|[Github](https://github.com/mermaid-js/mermaid)、[Website](https://mermaid.js.org)|
-|translate.js|[Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)|[Github](https://github.com/xnx3/translate)、[Gitee](https://gitee.com/mail_osc/translate)、[Website](https://translate.zvo.cn)|
-|darkmode.js|[MIT license](//mit-license.org)|[Github](https://github.com/sandoche/Darkmode.js)、[Website](https://darkmodejs.learn.uno)|
-|MoOx/pjax|[MIT license](//mit-license.org)|[Github](https://github.com/MoOx/pjax)|
-|instant.page|[MIT license](//mit-license.org)|[Github](https://github.com/instantpage/instant.page)、[Website](https://instant.page)|
-|Maple Mono|[OFL-1.1 license](https://openfontlicense.org/open-font-license-official-text/)|[Github](https://github.com/subframe7536/maple-font)、[Website](https://font.subf.dev)|
+|           名称           | 协议                                                                                            | 地址                                                                                                                            |
+| :----------------------: | :---------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
+|       tabler-icons       | [MIT License](//mit-license.org)                                                                | [Github](https://github.com/tabler/tabler-icons)、[Website](https://tabler.io/icons)                                            |
+| highlightjs/highlight.js | [BSD-3-Clause license](https://github.com/highlightjs/highlight.js/raw/refs/heads/main/LICENSE) | [Github](https://github.com/highlightjs/highlight.js)、[Website](https://highlightjs.org)                                       |
+|     markedjs/marked      | [marked License](https://github.com/markedjs/marked/blob/master/LICENSE.md)                     | [Github](https://github.com/markedjs/marked)、[Website](https://marked.js.org)                                                  |
+|    mermaidjs/mermaid     | [MIT License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)                       | [Github](https://github.com/mermaid-js/mermaid)、[Website](https://mermaid.js.org)                                              |
+|       translate.js       | [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)                        | [Github](https://github.com/xnx3/translate)、[Gitee](https://gitee.com/mail_osc/translate)、[Website](https://translate.zvo.cn) |
+|       darkmode.js        | [MIT license](//mit-license.org)                                                                | [Github](https://github.com/sandoche/Darkmode.js)、[Website](https://darkmodejs.learn.uno)                                      |
+|        MoOx/pjax         | [MIT license](//mit-license.org)                                                                | [Github](https://github.com/MoOx/pjax)                                                                                          |
+|       instant.page       | [MIT license](//mit-license.org)                                                                | [Github](https://github.com/instantpage/instant.page)、[Website](https://instant.page)                                          |
+|        Maple Mono        | [OFL-1.1 license](https://openfontlicense.org/open-font-license-official-text/)                 | [Github](https://github.com/subframe7536/maple-font)、[Website](https://font.subf.dev)                                          |
 
 #### 服务
 
-|图标|名称|
-|:-:|:--|
-|无|[360 前端静态资源库](https://cdn.baomitu.com/)|
-|![字节跳动静态资源公共库图标](https://cdn.bytedance.com/src/res/logo.svg)|[字节跳动静态资源公共库](https://cdn.bytedance.com/)|
-|![中文网字计划](https://chinese-font.netlify.app/favicon.ico)|[中文网字计划](https://chinese-font.netlify.app)|
+|                                   图标                                    | 名称                                                 |
+| :-----------------------------------------------------------------------: | :--------------------------------------------------- |
+|                                    无                                     | [360 前端静态资源库](https://cdn.baomitu.com/)       |
+| ![字节跳动静态资源公共库图标](https://cdn.bytedance.com/src/res/logo.svg) | [字节跳动静态资源公共库](https://cdn.bytedance.com/) |
+|       ![中文网字计划](https://chinese-font.netlify.app/favicon.ico)       | [中文网字计划](https://chinese-font.netlify.app)     |
 
 ## 星
 

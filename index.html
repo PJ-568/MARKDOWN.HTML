@@ -2,7 +2,7 @@
 
 <html>
   <markdown-html
-    version="1.20.0"
+    version="1.20.1"
     author="PJ568"
     repo="https://github.com/PJ-568/markdown.html"
     license="CC BY-SA 4.0 International"
@@ -1151,8 +1151,11 @@
       }
 
       /* 深色模式相关 */
+      /* 防止背景图片、svg、canvas 和视频等混色 */
       .darkmode--activated .markdown-body img,
-      .darkmode--activated .markdown-body svg {
+      .darkmode--activated .markdown-body svg,
+      .darkmode--activated .markdown-body canvas,
+      .darkmode--activated .markdown-body video {
         isolation: isolate;
         mix-blend-mode: difference;
       }
