@@ -2,7 +2,7 @@
 
 <html>
   <markdown-html
-    version="1.20.6"
+    version="1.20.7"
     author="PJ568"
     repo="https://github.com/PJ-568/markdown.html"
     license="CC BY-SA 4.0 International"
@@ -634,7 +634,12 @@
           images.forEach((img) => {
             const src = img.getAttribute("src");
             img.setAttribute("loading", "lazy");
-            if (src && !isExternalLink(src) && isRelativePath(src)) {
+            if (
+              src &&
+              !src.startsWith("data:") &&
+              !isExternalLink(src) &&
+              isRelativePath(src)
+            ) {
               var absolutePath = pValue
                 ? getDirectory(mdPath) + src
                 : getPath() + src;
