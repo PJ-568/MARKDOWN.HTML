@@ -2,7 +2,7 @@
 
 ## 1. 引言
 
-本文档详细说明项目中三个Bash脚本(`get-version.bash`, `is-newer-version.bash`, `release.bash`)和主程序(`src/main.rs`)的设计与功能。这些组件协同工作，实现版本管理、发布流程和HTML处理功能。
+本文档详细说明项目中三个 Bash 脚本(`get-version.bash`, `is-newer-version.bash`, `release.bash`)和主程序(`src/main.rs`)的设计与功能。这些组件协同工作，实现版本管理、发布流程和 HTML 处理功能。
 
 ```mermaid
 graph TD
@@ -16,16 +16,18 @@ graph TD
 
 ### 2.1 get-version.bash
 
-从HTML文件中提取版本号的核心脚本。
+从 HTML 文件中提取版本号的核心脚本。
 
 #### 功能设计
 
 1. **路径解析**：
+
    - 自动检测脚本所在目录(`$SCRIPT_DIR`)
    - 计算仓库根目录(`$REPO_DIR`)
    - 支持自定义文件路径参数(`$1`)
 
 2. **多语言支持**：
+
    - 通过`LANG`环境变量自动检测中英文
    - `recho()`函数实现双语错误消息
 
@@ -49,13 +51,14 @@ VERSION=$(grep -oP '<markdown-html\s+version="\K[^"]+' "$FILE_PATH" | head -1)
 
 ### 2.2 is-newer-version.bash
 
-比较当前版本与Git标签，判断是否需要发布新版本。
+比较当前版本与 Git 标签，判断是否需要发布新版本。
 
 #### 核心逻辑
 
 1. **版本获取**：
+
    - 调用`get-version.bash`获取当前版本
-   - 获取最新Git标签(`git tag -l 'v*'`)
+   - 获取最新 Git 标签(`git tag -l 'v*'`)
 
 2. **版本比较算法**：
 
@@ -108,7 +111,7 @@ sequenceDiagram
 
 ## 3. 主程序分析(src/main.rs)
 
-HTML处理核心程序，提供压缩和内联功能。
+HTML 处理核心程序，提供压缩和内联功能。
 
 ### 3.1 模块结构
 
@@ -118,9 +121,9 @@ pub fn all_in_one(input_path: &str) -> Result<PathBuf> { ... }
 fn fetch_external_resource(url: &str) -> Result<String> { ... }
 ```
 
-### 3.2 minify_html功能
+### 3.2 minify_html 功能
 
-HTML压缩实现：
+HTML 压缩实现：
 
 1. **输出路径生成**：`{filename}.min.html`
 2. **压缩配置**：
@@ -135,15 +138,15 @@ HTML压缩实现：
 
 3. **压缩执行**：`minify(&code, &cfg)`
 
-### 3.3 all_in_one功能
+### 3.3 all_in_one 功能
 
 资源内联实现：
 
 1. **资源获取**：
-   - 通过`fetch_external_resource`下载CSS/JS
-   - 自定义User-Agent规避拦截
-2. **DOM处理**：
-   - 使用`scraper`库解析HTML
+   - 通过`fetch_external_resource`下载 CSS/JS
+   - 自定义 User-Agent 规避拦截
+2. **DOM 处理**：
+   - 使用`scraper`库解析 HTML
    - 选择器定位`script[src]`和`link[rel=stylesheet]`
 3. **内联替换**：
 
@@ -207,7 +210,7 @@ if [ "$NEW_VER" != "0" ]; then
 fi
 ```
 
-### 5.2 HTML处理
+### 5.2 HTML 处理
 
 ```bash
 # 处理index.html
@@ -220,4 +223,5 @@ cargo run -- index.html
 ```
 
 ---
-> 本文档最后更新于：2025年6月26日  
+
+> 本文档最后更新于：2025 年 6 月 26 日
