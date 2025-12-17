@@ -2,7 +2,7 @@
 
 <html>
   <markdown-html
-    version="1.20.5"
+    version="1.20.6"
     author="PJ568"
     repo="https://github.com/PJ-568/markdown.html"
     license="CC BY-SA 4.0 International"
@@ -795,6 +795,22 @@
         );
         //// 点击事件委托
         document.addEventListener("click", function (event) {
+          const imgOrSvg = event.target.closest(".content img, .content svg");
+          if (imgOrSvg) {
+            const url =
+              imgOrSvg.getAttribute("src") ||
+              imgOrSvg.getAttribute("xlink:href");
+            if (url) {
+              window.open(url, "_blank");
+              event.preventDefault();
+            } else {
+              const newWindow = window.open("", "_blank");
+              newWindow.document.write(imgOrSvg.outerHTML);
+              newWindow.document.close();
+              event.preventDefault();
+            }
+            return;
+          }
           if (event.target.closest(".back-btn")) {
             window.history.back();
           } else if (event.target.closest(".refresh-btn")) {
