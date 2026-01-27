@@ -22,7 +22,7 @@ graph LR
 工作流在以下事件触发：
 
 - 推送到`master`分支
-- 手动触发(`workflow_dispatch`)
+- 手动触发 (`workflow_dispatch`)
 
 ## 3. 核心阶段详解
 
@@ -81,7 +81,7 @@ sequenceDiagram
    - 设置 Rust 编译环境
    - 缓存依赖加速构建
 2. **项目构建**：
-   - 发布模式编译(`cargo build --release`)
+   - 发布模式编译 (`cargo build --release`)
 3. **HTML 生成**：
    - 执行主程序处理 index.html
    - 产出四种 HTML 变体

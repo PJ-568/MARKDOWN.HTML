@@ -2,7 +2,7 @@
 
 ## 1. 引言
 
-本文档详细说明项目中三个 Bash 脚本(`get-version.bash`, `is-newer-version.bash`, `release.bash`)和主程序(`src/main.rs`)的设计与功能。这些组件协同工作，实现版本管理、发布流程和 HTML 处理功能。
+本文档详细说明项目中三个 Bash 脚本 (`get-version.bash`, `is-newer-version.bash`, `release.bash`) 和主程序 (`src/main.rs`) 的设计与功能。这些组件协同工作，实现版本管理、发布流程和 HTML 处理功能。
 
 ```mermaid
 graph TD
@@ -22,9 +22,9 @@ graph TD
 
 1. **路径解析**：
 
-   - 自动检测脚本所在目录(`$SCRIPT_DIR`)
-   - 计算仓库根目录(`$REPO_DIR`)
-   - 支持自定义文件路径参数(`$1`)
+   - 自动检测脚本所在目录 (`$SCRIPT_DIR`)
+   - 计算仓库根目录 (`$REPO_DIR`)
+   - 支持自定义文件路径参数 (`$1`)
 
 2. **多语言支持**：
 
@@ -39,8 +39,8 @@ VERSION=$(grep -oP '<markdown-html\s+version="\K[^"]+' "$FILE_PATH" | head -1)
 ```
 
 4. **错误处理**：
-   - 文件不存在检测(`[ ! -f "$FILE_PATH" ]`)
-   - 版本号缺失检测(`[ -z "$VERSION" ]`)
+   - 文件不存在检测 (`[ ! -f "$FILE_PATH" ]`)
+   - 版本号缺失检测 (`[ -z "$VERSION" ]`)
 
 **使用示例**：
 
@@ -58,7 +58,7 @@ VERSION=$(grep -oP '<markdown-html\s+version="\K[^"]+' "$FILE_PATH" | head -1)
 1. **版本获取**：
 
    - 调用`get-version.bash`获取当前版本
-   - 获取最新 Git 标签(`git tag -l 'v*'`)
+   - 获取最新 Git 标签 (`git tag -l 'v*'`)
 
 2. **版本比较算法**：
 
@@ -109,7 +109,7 @@ sequenceDiagram
    - 标签创建/推送失败
 4. **多语言界面**：所有交互提示支持中英文
 
-## 3. 主程序分析(src/main.rs)
+## 3. 主程序分析 (src/main.rs)
 
 HTML 处理核心程序，提供压缩和内联功能。
 

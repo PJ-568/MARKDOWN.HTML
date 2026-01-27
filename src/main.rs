@@ -18,7 +18,7 @@ impl Error for HtmlProcessorError {}
 
 type Result<T> = std::result::Result<T, Box<dyn Error>>;
 
-/// 压缩HTML文件
+/// 压缩 HTML 文件
 pub fn minify_html(input_path: &str) -> Result<PathBuf> {
     let input_path_obj = Path::new(input_path);
     let file_stem = input_path_obj.file_stem()
@@ -82,10 +82,10 @@ pub fn all_in_one(input_path: &str) -> Result<PathBuf> {
     let html_str = String::from_utf8_lossy(&html_content);
     let document = Html::parse_document(&html_str);
 
-    // 保留原始HTML结构，只替换特定标签内容
+    // 保留原始 HTML 结构，只替换特定标签内容
     let mut processed_html = html_str.to_string();
 
-    // 处理script标签
+    // 处理 script 标签
     let script_selector = Selector::parse("script[src]").unwrap();
     for script in document.select(&script_selector) {
         if let Some(src) = script.value().attr("src") {
@@ -110,7 +110,7 @@ pub fn all_in_one(input_path: &str) -> Result<PathBuf> {
         }
     }
 
-    // 处理link标签
+    // 处理 link 标签
     let link_selector = Selector::parse("link[rel=stylesheet]").unwrap();
     for link in document.select(&link_selector) {
         if let Some(href) = link.value().attr("href") {
@@ -146,7 +146,7 @@ fn main() {
 
     let input_path = std::env::args().nth(1).expect("Expected a path to an HTML file");
 
-    // 1. 生成min.html
+    // 1. 生成 min.html
     match minify_html(&input_path) {
         Ok(minified_path) => {
             println!("Minified HTML written to {}", minified_path.display());
@@ -154,12 +154,12 @@ fn main() {
         Err(e) => eprintln!("Error minifying HTML: {}", e),
     }
 
-    // 2. 生成allinone.html
+    // 2. 生成 allinone.html
     match all_in_one(&input_path) {
         Ok(all_in_one_path) => {
             println!("All-in-one HTML written to {}", all_in_one_path.display());
             
-            // 3. 生成allinone.min.html
+            // 3. 生成 allinone.min.html
             match minify_html(all_in_one_path.to_str().unwrap()) {
                 Ok(minified_path) => {
                     println!("Minified all-in-one HTML written to {}", minified_path.display());

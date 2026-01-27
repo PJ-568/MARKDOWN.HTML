@@ -1,12 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html>
   <markdown-html
-    version="1.20.8"
+    version="1.20.9"
     author="PJ568"
     repo="https://github.com/PJ-568/markdown.html"
     license="CC BY-SA 4.0 International"
-  ></markdown-html>
+  >
+  </markdown-html>
 
   <head>
     <meta charset="utf-8" />
@@ -249,7 +250,7 @@
               bq.appendChild(switchButton);
 
               const mainElement = document.querySelector(
-                ".markdown-body .content"
+                ".markdown-body .content",
               );
               mainElement.insertBefore(bq, mainElement.children[1]);
             }
@@ -353,17 +354,16 @@
         // 处理错误
         function updateContent(article, title = null, mdPath = pValue) {
           try {
-            document.querySelector(
-              ".markdown-body"
-            ).innerHTML = `<div class="old-content Animated Animated-remove Animated--reverse Animate--fast Animate--noDelay Animate--slideInLeft">${
-              document.querySelector(".markdown-body .content").innerHTML
-            }</div><div class="content Animated Animate--slideInRight">${article}</div>`;
+            document.querySelector(".markdown-body").innerHTML =
+              `<div class="old-content Animated Animated-remove Animated--reverse Animate--fast Animate--noDelay Animate--slideInLeft">${
+                document.querySelector(".markdown-body .content").innerHTML
+              }</div><div class="content Animated Animate--slideInRight">${article}</div>`;
             firstH1 = document.querySelector(".markdown-body .content h1");
             document.title = title
               ? title
               : firstH1
-              ? firstH1.textContent
-              : mdPath;
+                ? firstH1.textContent
+                : mdPath;
           } catch (error) {
             throw error;
           }
@@ -374,7 +374,7 @@
           return new Promise((resolve, reject) => {
             //// 检查是否已加载
             const existingLinks = document.querySelectorAll(
-              `link[href="${url}"]`
+              `link[href="${url}"]`,
             );
             if (existingLinks.length > 0) {
               return resolve(url);
@@ -398,7 +398,7 @@
               link.onerror = null;
               link.onload = null;
               document.head.removeChild(link);
-              reject(new Error(`无法加载CSS文件: ${url}`));
+              reject(new Error(`无法加载 CSS 文件：${url}`));
             };
 
             //// 添加到文档头部
@@ -422,7 +422,7 @@
                 if (completedCount === totalElements) {
                   parentElement.removeEventListener(
                     "animationend",
-                    handleAnimationEnd
+                    handleAnimationEnd,
                   );
                   resolve();
                 }
@@ -437,17 +437,17 @@
         function handleError(mdPath, errorMessage) {
           updateContent(
             `<h1>加载失败</h1><p>加载文档<code>${mdPath}</code>时出错：<code>${errorMessage}</code>。您可以尝试<a class="refresh-btn" href="">重新加载</a>或<a class="back-btn">返回</a>。</p>`,
-            "加载失败"
+            "加载失败",
           );
           waitForAnimationsEnd(
             document.querySelector(".markdown-body"),
             ".content, .old-content",
-            ["Animation-slideInRight", "Animation-slideInLeft"]
+            ["Animation-slideInRight", "Animation-slideInLeft"],
           ).then(() => {
             customPushState(
               window.location.origin +
                 window.location.pathname +
-                (mdPath ? "?p=" + mdPath : "")
+                (mdPath ? "?p=" + mdPath : ""),
             );
           });
           endLoad();
@@ -517,13 +517,13 @@
             waitForAnimationsEnd(
               document.querySelector(".markdown-body"),
               ".content, .old-content",
-              ["Animation-slideInRight", "Animation-slideInLeft"]
+              ["Animation-slideInRight", "Animation-slideInLeft"],
             ).then(async () => {
               await showMarkdownEnded();
               customPushState(
                 window.location.origin +
                   window.location.pathname +
-                  (mdPath ? "?p=" + mdPath : "")
+                  (mdPath ? "?p=" + mdPath : ""),
               );
             });
           } catch (error) {
@@ -536,7 +536,7 @@
           //// 生成目录
           function generateOutline(doc) {
             const headings = Array.from(
-              doc.querySelectorAll("h1, h2, h3, h4, h5, h6")
+              doc.querySelectorAll("h1, h2, h3, h4, h5, h6"),
             );
             if (headings.length === 0) return "<i>无目录</i>";
             var outline = "<ul>";
@@ -593,7 +593,7 @@
                   "，" +
                   response.status +
                   "，" +
-                  response.statusText
+                  response.statusText,
               );
             }
           }
@@ -608,7 +608,7 @@
           const linkParser = new DOMParser();
           const linkDoc = linkParser.parseFromString(
             `<div>${content}</div>`,
-            "text/html"
+            "text/html",
           );
 
           //// 处理所有 a 链接
@@ -659,7 +659,7 @@
 
           //// 添加目录
           content = `<details class="outline"><summary>${decodeURIComponent(
-            mdPath
+            mdPath,
           )}</summary></details><hr>${content}`;
           const parser = new DOMParser();
           const doc = parser.parseFromString(content, "text/html");
@@ -678,11 +678,11 @@
             responseText,
             request,
             href,
-            options
+            options,
           ) {
             if (
               /^<!doctype html>[\s\S]*?<html>[\s\S]*?<markdown-html/i.test(
-                request.responseText
+                request.responseText,
               )
             ) {
               await showMarkdown(await decodeMDPath(href));
@@ -720,7 +720,7 @@
               history.pushState(
                 { url: url, title: document.title, uid: level },
                 null,
-                url
+                url,
               );
               lastLevel = level++;
             } else {
@@ -748,7 +748,7 @@
         function initAboutBtn() {
           const aboutBtn = document.querySelector(".about-btn");
           aboutBtn.href = `?p=${getDirectory(
-            window.location.pathname
+            window.location.pathname,
           )}about.md`;
         }
 
@@ -796,7 +796,7 @@
             } else if (event.animationName === "Animation-slideInLeft") {
               document.querySelector(".markdown-body .old-content").remove();
             }
-          }
+          },
         );
         //// 点击事件委托
         document.addEventListener("click", function (event) {
@@ -894,8 +894,9 @@
       textarea,
       code,
       pre {
-        font-family: "Sarasa Term SC Nerd", "Maple Mono CN", Ubuntu, Roboto,
-          "Open Sans", "Microsoft YaHei", Arial, sans-serif;
+        font-family:
+          "Sarasa Term SC Nerd", "Maple Mono CN", Ubuntu, Roboto, "Open Sans",
+          "Microsoft YaHei", Arial, sans-serif;
         text-decoration: none;
       }
 
@@ -950,7 +951,9 @@
       nav a {
         color: #fafafa;
         padding: 0.3rem;
-        transition: color 0.2s, background-color 0.2s;
+        transition:
+          color 0.2s,
+          background-color 0.2s;
       }
 
       nav a:hover {
@@ -1041,7 +1044,9 @@
 
       /* Markdown 样式 */
       .markdown-body a {
-        transition: color 0.2s, background-color 0.2s;
+        transition:
+          color 0.2s,
+          background-color 0.2s;
       }
 
       .markdown-body a:hover {
@@ -1225,7 +1230,7 @@
     <!-- 导航栏 -->
     <nav>
       <a title="返回" class="back-btn">
-        <license content="Copyright (c) 2018-2025 Tabler" />
+        <license content="Copyright (c) 2018-2025 Tabler"></license>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -1243,7 +1248,7 @@
         </svg>
       </a>
       <a title="刷新" class="refresh-btn" href="">
-        <license content="Copyright (c) 2018-2025 Tabler" />
+        <license content="Copyright (c) 2018-2025 Tabler"></license>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -1262,7 +1267,7 @@
         </svg>
       </a>
       <a title="主页" class="to-home">
-        <license content="Copyright (c) 2018-2025 Tabler" />
+        <license content="Copyright (c) 2018-2025 Tabler"></license>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -1282,7 +1287,7 @@
         </svg>
       </a>
       <a title="更改语言" id="translate">
-        <license content="Copyright (c) 2018-2025 Tabler" />
+        <license content="Copyright (c) 2018-2025 Tabler"></license>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -1304,7 +1309,7 @@
         </svg>
       </a>
       <a title="切换显示模式" class="dark-btn" href="javascript:;">
-        <license content="Copyright (c) 2018-2025 Tabler" />
+        <license content="Copyright (c) 2018-2025 Tabler"></license>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -1326,7 +1331,7 @@
         </svg>
       </a>
       <a title="关于" class="about-btn">
-        <license content="Copyright (c) 2018-2025 Tabler" />
+        <license content="Copyright (c) 2018-2025 Tabler"></license>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
