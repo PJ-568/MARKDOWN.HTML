@@ -152,7 +152,6 @@ graph TB
 #### 核心功能：
 
 1. **HTML 压缩**：`minify_html()`
-
    - 使用 `minify-html` 库进行压缩
    - 保留关键标签结构
    - 压缩 CSS 和 JavaScript

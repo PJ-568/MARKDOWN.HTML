@@ -21,13 +21,11 @@ graph TD
 #### 功能设计
 
 1. **路径解析**：
-
    - 自动检测脚本所在目录 (`$SCRIPT_DIR`)
    - 计算仓库根目录 (`$REPO_DIR`)
    - 支持自定义文件路径参数 (`$1`)
 
 2. **多语言支持**：
-
    - 通过`LANG`环境变量自动检测中英文
    - `recho()`函数实现双语错误消息
 
@@ -56,7 +54,6 @@ VERSION=$(grep -oP '<markdown-html\s+version="\K[^"]+' "$FILE_PATH" | head -1)
 #### 核心逻辑
 
 1. **版本获取**：
-
    - 调用`get-version.bash`获取当前版本
    - 获取最新 Git 标签 (`git tag -l 'v*'`)
 
