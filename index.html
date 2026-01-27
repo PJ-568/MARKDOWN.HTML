@@ -2,7 +2,7 @@
 
 <html>
   <markdown-html
-    version="1.20.10"
+    version="1.20.11"
     author="PJ568"
     repo="https://github.com/PJ-568/markdown.html"
     license="CC BY-SA 4.0 International"
@@ -313,10 +313,8 @@
           return mdPath;
         }
 
-        // 判断链接是否为外链
-        function isExternalLink(url) {
-          if (!url || typeof url !== "string") return false;
-
+        // 判断是否为其它协议（是 HTTP(S) 协议）
+        function isProtocol(url) {
           //// 排除特殊协议
           const excludedProtocols = [
             "#",
@@ -324,8 +322,21 @@
             "mailto:",
             "tel:",
             "data:",
+            "ftp:",
+            "about:",
           ];
           if (excludedProtocols.some((proto) => url.startsWith(proto))) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+
+        // 判断链接是否为外链
+        function isExternalLink(url) {
+          if (!url || typeof url !== "string") return false;
+
+          if (!isProtocol(url)) {
             return false;
           }
 
@@ -615,7 +626,8 @@
           const mdLinks = linkDoc.querySelectorAll('a[href]:not([href=""])');
           mdLinks.forEach((link) => {
             const href = link.getAttribute("href");
-            if (!isExternalLink(href) && isRelativePath(href)) {
+            //// 是相对路径
+            if (!isExternalLink(href) && isRelativePath(href) && isProtocol(href)) {
               var absolutePath = pValue
                 ? getDirectory(mdPath) + href
                 : getPath() + href;
